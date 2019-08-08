@@ -116,8 +116,8 @@
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-    <script src="/js/respond.min.js"></script>
-    <script src="/js/html5.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <script src="https://cdn.bootcss.com/html5shiv/r29/html5.js"></script>
     <![endif]-->
     <script>
         var MUSIC_CONFIG = {
@@ -197,7 +197,15 @@
                     <a class="nav-item-link" href="/v3/music/service/vrbt" target="_blank"><i class="iconfont cf-nav-cailing"></i><span>视频彩铃</span></a>
                     </li> -->
                     <li class="nav-item" id="J-user-info">
-                        <a class="nav-item-link J_login" href="javascript:;"><i class="iconfont cf-nav-geren"></i><span>登录</span></a>
+                        <p th:if="${session.SESSION_USER}!=null" id="USER_SESSION" style="color: white">
+                            欢迎您！<a th:text="${session.SESSION_USER['phone']}" style="color: white"></a>
+
+                            <a href="/feignUser/logOffUser" style="color: white">注销</a>
+                        </p>
+                        <a th:if="${session.SESSION_USER}==null" class="nav-item-link J_login" href="/feignUser/login">
+                            <i class="iconfont cf-nav-geren"></i>
+                            <span>登录</span>
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -1404,12 +1412,12 @@
     </a>
 </div>
 <a href="javascript:;" id="J_LoginBtn" style="display: none;"></a>
-<script src="%E9%9F%B3%E4%B9%90-%E6%AD%8C%E5%8D%95-%E5%92%AA%E5%92%95%E9%9F%B3%E4%B9%90%E7%BD%91_%E6%94%BE%E8%82%86%E5%90%AC%C2%B7%E8%B6%A3%E7%8E%A9%E4%B9%90_files/jquery.js"></script>
-<script src="%E9%9F%B3%E4%B9%90-%E6%AD%8C%E5%8D%95-%E5%92%AA%E5%92%95%E9%9F%B3%E4%B9%90%E7%BD%91_%E6%94%BE%E8%82%86%E5%90%AC%C2%B7%E8%B6%A3%E7%8E%A9%E4%B9%90_files/manifest.js"></script>
-<script src="%E9%9F%B3%E4%B9%90-%E6%AD%8C%E5%8D%95-%E5%92%AA%E5%92%95%E9%9F%B3%E4%B9%90%E7%BD%91_%E6%94%BE%E8%82%86%E5%90%AC%C2%B7%E8%B6%A3%E7%8E%A9%E4%B9%90_files/vendor.js"></script>
-<script src="%E9%9F%B3%E4%B9%90-%E6%AD%8C%E5%8D%95-%E5%92%AA%E5%92%95%E9%9F%B3%E4%B9%90%E7%BD%91_%E6%94%BE%E8%82%86%E5%90%AC%C2%B7%E8%B6%A3%E7%8E%A9%E4%B9%90_files/common.js"></script>
-<script src="%E9%9F%B3%E4%B9%90-%E6%AD%8C%E5%8D%95-%E5%92%AA%E5%92%95%E9%9F%B3%E4%B9%90%E7%BD%91_%E6%94%BE%E8%82%86%E5%90%AC%C2%B7%E8%B6%A3%E7%8E%A9%E4%B9%90_files/musicPlay.js"></script>
-<script src="%E9%9F%B3%E4%B9%90-%E6%AD%8C%E5%8D%95-%E5%92%AA%E5%92%95%E9%9F%B3%E4%B9%90%E7%BD%91_%E6%94%BE%E8%82%86%E5%90%AC%C2%B7%E8%B6%A3%E7%8E%A9%E4%B9%90_files/playlist.js"></script>
+<script src="/js/jquery.js"></script>
+<script src="/js/manifest.js"></script>
+<script src="/js/vendor.js"></script>
+<script src="/js/common.js"></script>
+<script src="/js/musicPlay.js"></script>
+<script src="/js/playlist.js"></script>
 
 <script type="text/javascript"
         src="%E9%9F%B3%E4%B9%90-%E6%AD%8C%E5%8D%95-%E5%92%AA%E5%92%95%E9%9F%B3%E4%B9%90%E7%BD%91_%E6%94%BE%E8%82%86%E5%90%AC%C2%B7%E8%B6%A3%E7%8E%A9%E4%B9%90_files/login.htm"></script>
