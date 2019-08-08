@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta property="wb:webmaster" content="b685881ad4f09932">
+    <meta property="qc:admins" content="3541556021330724651756367">
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="format-detection" content="telephone=no">
+    <title>咪咕用户中心门户-手机号注册</title>
+    <link rel="stylesheet" type="text/css" href="/css/all.css">
+</head>
+
+<body class="music  min-width ">
+<div style="display: none; position: absolute;" class="">
+    <div class="aui_outer">
+        <table class="aui_border">
+            <tbody>
+            <tr>
+                <td class="aui_nw"></td>
+                <td class="aui_n"></td>
+                <td class="aui_ne"></td>
+            </tr>
+            <tr>
+                <td class="aui_w"></td>
+                <td class="aui_c">
+                    <div class="aui_inner">
+                        <table class="aui_dialog">
+                            <tbody>
+                            <tr>
+                                <td colspan="2" class="aui_header">
+                                    <div class="aui_titleBar">
+                                        <div class="aui_title" style="cursor: auto;"></div>
+                                        <a class="aui_close" href="javascript:/*artDialog*/;">×</a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="aui_icon" style="display: none;">
+                                    <div class="aui_iconBg" style="background: rgba(0, 0, 0, 0) none repeat scroll 0% 0%;"></div>
+                                </td>
+                                <td class="aui_main" style="width: 390px; height: 384px;">
+                                    <div class="aui_content" style="padding: 0px;"></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" class="aui_footer">
+                                    <div class="aui_buttons" style="display: none;"></div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </td>
+                <td class="aui_e"></td>
+            </tr>
+            <tr>
+                <td class="aui_sw"></td>
+                <td class="aui_s"></td>
+                <td class="aui_se" style="cursor: auto;"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<script type="text/javascript" src="/htm/getability.htm"></script><input type="hidden" class="j_imgtype" value="0"><input type="hidden" id="J_MsgCodeRefreshUrl" value="https://passport.migu.cn/portal/captcha/sliding?sourceid=220001"><input type="hidden" id="J_MsgCodeValidUrl" value="https://passport.migu.cn/portal/captcha/s+liding/check?sourceid=220001"><input type="hidden" id="J_MsgCodeClearUrl" value="https://passport.migu.cn/captcha/sliding/cancelrisk?sourceid=220001"><input type="hidden" id="J_ImgSlideTxt" value="系统检测到您的帐号存在安全风险，请先进行安全验证">
+<input type="hidden" id="J_MsgCodeRsaUrl" value="https://passport.migu.cn/portal/password/publickey">
+<input type="hidden" id="J_IsPc" value="1">
+<script type="text/javascript">
+    (function() {
+        var sys = {},
+            ua = navigator.userAgent;
+        sys.iphone = ua.indexOf("iPhone") > -1;
+        sys.ipod = ua.indexOf("iPod") > -1;
+        sys.ipad = ua.indexOf("iPad") > -1;
+        sys.nokiaN = ua.indexOf("NokiaN") > -1;
+        /Win(?:dows )?([^do]{2})/.test(ua);
+        sys.winMobile = /^CE|Ph$/.test(RegExp["$1"]);
+        sys.ios = navigator.platform.indexOf("Mac") == 0 && ua.indexOf("Mobile") > -1;
+        sys.android = ua.indexOf("Android") > -1;
+
+        var isNoPC = sys.iphone || sys.ipod || sys.ipad || sys.nokiaN || sys.winMobile || sys.ios || sys.android;
+        document.getElementById("J_IsPc").value = isNoPC ? "0" : "1";
+    })();
+</script>
+<script type="text/javascript">
+    document.write('<input type="hidden" id="J_AgreeHref" value="https://passport.migu.cn/portal/protocol?sourceid=220001"/>');
+    document.write('<input type="hidden" id="J_PrivacyHref" value="https://passport.migu.cn/portal/privacy/protocol?sourceid=220001"/>');
+    document.write('<input type="hidden" id="J_RegExplain" value="https://passport.migu.cn/portal/user/register/popup?sourceid=220001"/>');
+</script><input type="hidden" id="J_AgreeHref" value="https://passport.migu.cn/portal/protocol?sourceid=220001"><input type="hidden" id="J_PrivacyHref" value="https://passport.migu.cn/portal/privacy/protocol?sourceid=220001"><input type="hidden" id="J_RegExplain" value="https://passport.migu.cn/portal/user/register/popup?sourceid=220001">
+<div class="header">
+    <div class="pager clearfix">
+        <div class="logo">
+            <a href="/static/picture/logo.png" class="logo-one"></a>
+        </div>
+        <div class="login">
+
+        </div>
+    </div>
+</div>
+<input type="hidden" name="dispatcher" id="dispatcher-admin" value="regPhone">
+<input type="hidden" class="j_imgdisplay" value="0">
+<script src="/js/jquery-3.1.1.min.js" ></script>
+<script type="text/javascript">
+    $(function () {
+        $("#J_Phone").blur(function () {
+            var mobileNo = $(this).val();
+            $.ajax({
+                url:"/feignUser/validatePhoneByUser/"+mobileNo,
+                dataType:"json",
+                type:"post",
+                success:function (data) {
+                    if(data > 0){
+                        $("#mobileNo_show").show();
+                        $("#mobileNo_show").text("手机号已存在！");
+                    }else{
+                        $("#mobileNo_show").text("手机号可以使用！");
+                        $("#mobileNo_show").hide();
+                    }
+                }
+
+            })
+        })
+        $("#forms").submit(function(){
+            isOk = true;
+            if($("#mobileNo_show").text()=="手机号已存在！"){
+                isOk = false;
+                return isOk;
+            }else{
+                isOk = true;
+            }
+            return isOk;
+        })
+    })
+</script>
+<div class="bodier regphone">
+    <div class="pager" id="cvs">
+        <div class="content">
+            <h1 class="titler clearfix"><span class="fl">注册</span><span style="display: inline-block;width: 800px;"></span><a href="/feignUser/main">主页</a>
+            </h1>
+            <div class="note1">
+                <h3>您正在注册咪咕帐号</h3>
+                <p>您可以使用该帐号登录咪咕音乐、咪咕视频、咪咕阅读、咪咕游戏、咪咕圈圈等业务。
+                    <br>中国移动用户已默认注册和通行证帐号，可直接登录咪咕业务。</p>
+            </div>
+            <form class="former J_ValidForm" method="post" action="/feignUser/addUserByNameAndPwd" id="forms">
+
+                <div class="form-item form-pos">
+                    <label for="J_Phone">手机号</label>
+                    <input  type="text" class="txt J_DelectIcon" maxlength="11" autocomplete="off" placeholder="请输入手机号" id="J_Phone" name="phone" datatype="phone2" nullmsg="手机号码不能为空" errormsg="手机号码输入错误" cmcc-btn="J_GetMsgCode">
+                    <span id="mobileNo_show"  hidden style="color: red" >手机号已存在！</span>
+                </div>
+
+                <div class="form-item">
+                    <label for="J_MsgCode">短信验证码</label>
+                    <input type="text" class="txt txt2" autocomplete="off" name="captcha" placeholder="请输入验证码" maxlength="6" id="J_MsgCode" datatype="msgcode" nullmsg="短信验证码不能为空" errormsg="短信验证码错误或已失效">
+                    <input type="button" class="btn disabled" value="获取验证码" cmcc-ajax="https://passport.migu.cn/portal/user/register/msisdn/captcha" id="J_GetMsgCode" cmcc-rsaajax="https://passport.migu.cn/portal/password/publickey">
+                    <input type="hidden" class="J_MsgCodeID" name="sessionid">
+                </div>
+                <div class="form-item">
+                    <label>设置密码</label>
+                    <input type="password" class="txt J_DelectIcon" value="" autocomplete="off" placeholder="请输入密码" id="J_NewPassword" maxlength="16" datatype="psdvalid" nullmsg="密码不能为空" errormsg="请输入6-16位数字、字母或符号的组合" cmcc-psdid="J_Eye_51161D72BE7946B78C36E8D45E4DC3AC" name="password">
+                    <input type="hidden" class="J_RsaPsd" name="enpassword">
+                    <div id="J_Eye_51161D72BE7946B78C36E8D45E4DC3AC" class="psdeyewrap" style="left:260.433349609375px; top:0px; width:311px; height:0;"><em style="margin-top: 15px;"></em></div>
+                </div>
+                <div class="form-item">
+                    <input type="submit" value="立即注册" class="submit" cmcc-txt="注册中">
+                </div>
+                <input type="hidden" class="J_Modulus" value="">
+                <input type="hidden" class="J_PublicExponent" value="">
+                <input type="password" style="opacity: 0; height: 0; position: absolute; top: -9999px;" class="J_NoPsdEye">
+            </form>
+            <iframe style="display:none;" src="/htm/login-sneak.htm" id="J_AutoLoginIframe"></iframe>
+        </div>
+    </div>
+</div>
+<div class="footer">
+    <div class="pager">
+        <a href="http://www.migu.cn/1040_2132.html">公司简介</a>|
+        <a href="http://www.migu.cn/1040_2133.html">帮助中心</a>|
+        <a href="https://passport.migu.cn/portal/guide?sourceid=220001" target="_blank">用户指南</a>|
+        <a href="http://www.10086.cn/" target="_blank">移动门户</a>|
+        <a href="https://passport.migu.cn/portal/protocol?sourceid=220001" target="_blank">咪咕用户服务协议</a>|
+        <a href="https://passport.migu.cn/portal/privacy/protocol?sourceid=220001" target="_blank">咪咕隐私权政策</a>|<span>蜀ICP备15012512号-1 © 2019  咪咕文化科技有限公司</span>
+    </div>
+</div>
+<script type="text/javascript" src="/base.js" id="seajsFile"></script>
+
+<div style="display: none;">
+    <div style="height: 100%; background: rgb(0, 0, 0) none repeat scroll 0% 0%; opacity: 0.3; z-index: 1989;"></div>
+</div>
+</body>
+
+</html>

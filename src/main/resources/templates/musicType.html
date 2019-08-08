@@ -1,0 +1,1423 @@
+<!DOCTYPE html>
+<!--[if IE]>
+<html lang="zh-CN" class="lt-ie10">
+<![endif]-->
+<!--[if !IE]><!-->
+<html lang="zh-CN"><!--<![endif]-->
+<head>
+    <style type="text/css">#J_Mark53645 {
+        display: none;
+        position: fixed;
+        margin: 0;
+        padding: 0;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #000;
+        filter: alpha(opacity=30);
+        opacity: 0.3;
+        z-index: 1982;
+    }
+
+    #J_LoginIframeWarp53645 {
+        display: none;
+        background: #fff;
+        position: fixed;
+        border-radius: 8px;
+        -moz-border-radius: 8px;
+        -webkit-border-radius: 8px;
+        margin: 0;
+        padding: 0;
+        top: -9999px;
+        left: -9999px;
+        width: 390px;
+        margin-left: -235px;
+        z-index: 1984;
+        font-size: 12px;
+        line-height: 1;
+        font-family: 微软雅黑, Tahoma, Helvetica, Arial, sans-serif;
+        background: #fff url(https://passport.migu.cn/images/redirect.png) no-repeat center 40%;
+    }
+
+    #J_LoginIframeWarp53645.music {
+        background-image: url(https://passport.migu.cn/images/redirect-music.png);
+    }
+
+    #J_LoginIframeWarp53645.read {
+        background-image: url(https://passport.migu.cn/images/redirect-read.png);
+    }
+
+    #J_LoginIframeWarp53645.comic {
+        background-image: url(https://passport.migu.cn/images/redirect-comic.png);
+    }
+
+    #J_LoginIframeWarp53645.video {
+        background-image: url(https://passport.migu.cn/images/redirect-video.png);
+    }
+
+    #J_LoginIframeWarp53645.game {
+        background-image: url(https://passport.migu.cn/images/redirect-game.png);
+    }
+
+    #J_LoginIframeWarp53645 p {
+        position: absolute;
+        margin: 0;
+        padding: 0;
+        top: 40%;
+        left: 0;
+        margin-top: 55px;
+        width: 100%;
+        font-size: 24px;
+        color: #444;
+        text-align: center;
+        z-index: 1;
+    }
+
+    #J_LoginClose53645 {
+        position: absolute;
+        top: -10px;
+        right: -10px;
+        border-radius: 50%;
+        background-color: #fff;
+        width: 33px;
+        height: 33px;
+        box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.06);
+        color: #D8D8D8;
+        font-weight: 400;
+        font-size: 28px;
+        text-align: center;
+        text-decoration: none;
+        outline: none;
+        cursor: pointer;
+        line-height: 30px;
+        font-family: 微软雅黑, Tahoma, Helvetica, Arial, sans-serif;
+        z-index: 3;
+    }</style>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="format-detection" content="email=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="applicable-device" content="pc">
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+    <link rel="dns-prefetch" href="http://music.migu.cn/">
+    <link rel="dns-prefetch" href="http://cdnmusic.migu.cn/">
+    <link rel="shortcut icon" href="http://cdnmusic.migu.cn/favicon.ico" type="image/x-icon">
+    <meta name="renderer" content="webkit">
+    <title>音乐-歌单-咪咕音乐网_放肆听·趣玩乐</title>
+    <meta name="keywords"
+          content="咪咕音乐,彩铃,移动彩铃,手机彩铃,中国移动,12530,mp3,高品质音乐,无损音乐,在线听歌,歌曲下载,振铃,歌曲,铃音,特级会员,电台,mv,演唱会直播,音乐网站,音乐播放器">
+    <meta name="description"
+          content="咪咕音乐网是中国移动官方音乐门户，旨在提供音乐首发、高品质音乐试听、彩铃订购、歌曲下载、铃音管理、音乐电台、音乐视频等一站式音乐互动体验，好音乐尽在music.migu.cn！">
+    <link href="/css/global.css"
+          rel="stylesheet">
+    <link href="/css/playlist.css"
+          rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="/js/respond.min.js"></script>
+    <script src="/js/html5.js"></script>
+    <![endif]-->
+    <script>
+        var MUSIC_CONFIG = {
+            APP_CDN_HOST: '//cdnmusic.migu.cn',
+            APP_HOST: 'http://music.migu.cn',
+            APP_BASE_PATH: '/v3',
+            APP_MUSIC_PATH: '/v3/music',
+            APP_VIDEO_PATH: '/v3/video',
+            APP_MY_PATH: '/v3/my',
+            APP_SEARCH_PATH: '/v3/search',
+            APP_API_PATH: '/v3/api',
+            APP_STATIC_PATH: '/v3/static',
+            SOURCE_ID: '220001',
+            CHANNEL_ID: '001002A',
+            MIGU_LOGIN_URL: 'https://passport.migu.cn/popup/login?sourceid=',
+            MIGU_LOGOUT_URL: 'https://passport.migu.cn/logout?sourceid=',
+            MIGU_ACCOUNT_SET: 'https://passport.migu.cn/portal/home/profile?sourceid=',
+            MIGU_ACCOUNT_REGISTER: 'https://passport.migu.cn/portal/user/register/msisdn',
+            MIGU_SDK_AUTHID: 'c3adb034f8a8446a822828b795a29349',
+            MIGU_SDK_NETID: 'b486900f41fc411187240dcb45fdbc8d',
+            IS_FROM_MIGU: ''
+        };
+        // 用于挂载全局变量
+        var MUSIC_GLOBAL = window.MUSIC_GLOBAL ? window.MUSIC_GLOBAL : {};
+    </script>
+</head>
+<body>
+<!-- header -->
+<div id="header">
+    <div class="header">
+        <div class="container">
+            <h1 class="logo">
+                <a href="http://music.migu.cn/" title="咪咕音乐 music.migu.cn">
+                    <img src="%E9%9F%B3%E4%B9%90-%E6%AD%8C%E5%8D%95-%E5%92%AA%E5%92%95%E9%9F%B3%E4%B9%90%E7%BD%91_%E6%94%BE%E8%82%86%E5%90%AC%C2%B7%E8%B6%A3%E7%8E%A9%E4%B9%90_files/logo.png"
+                         alt="咪咕音乐 放厮听·趣玩乐">
+                </a>
+            </h1>
+            <div class="nav-main">
+                <ul class="nav-container">
+                    <li class="nav-item on">
+                        <a href="http://music.migu.cn/">音乐</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="http://music.migu.cn/v3/video">现场</a>
+                    </li>
+                    <li class="nav-item" id="J-my">
+                        <a href="javascript:;">我的</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="nav-less">
+                <div class="search smallinp">
+                    <div class="ipt">
+                        <input type="text" id="search_ipt" placeholder="搜索歌曲、歌手、MV">
+                        <span class="btn-search"><i class="iconfont cf-nav-sousuo"></i></span>
+                    </div>
+                    <ul class="J_search_list">
+                        <li class="hotList droplist">
+                            <p class="searchItem hotlist_title"></p>
+                        </li>
+                        <li class="searchList">
+                            <div class="searchtype_container">
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <ul class="nav-container">
+                    <li class="nav-item vip-platinum">
+                        <a class="nav-item-link" href="http://music.migu.cn/v3/music/service/platinum"
+                           target="_blank"><i class="iconfont cf-nav-huiyuan"></i><span>白金会员</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-item-link" href="http://music.migu.cn/v3/app" target="_blank"><i
+                                class="iconfont cf-nav-kehuduan"></i><span>客户端</span></a>
+                    </li>
+                    <!-- <li class="nav-item nav-diy">
+                    <a class="nav-item-link" href="/v3/music/service/vrbt" target="_blank"><i class="iconfont cf-nav-cailing"></i><span>视频彩铃</span></a>
+                    </li> -->
+                    <li class="nav-item" id="J-user-info">
+                        <a class="nav-item-link J_login" href="javascript:;"><i class="iconfont cf-nav-geren"></i><span>登录</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="sub-nav">
+        <div class="container">
+            <ul class="sub-nav-music active-menu" style="display: block;">
+                <li>
+                    <a href="http://music.migu.cn/">首页</a>
+                </li>
+                <li>
+                    <a href="http://music.migu.cn/v3/music/digital_album">数字专辑</a>
+                </li>
+                <li class="on">
+                    <a href="http://music.migu.cn/v3/music/playlist">歌单</a>
+                </li>
+                <li>
+                    <a href="http://music.migu.cn/v3/music/album">专辑</a>
+                </li>
+                <li>
+                    <a href="http://music.migu.cn/v3/music/top">榜单</a>
+                </li>
+                <li>
+                    <a href="http://music.migu.cn/v3/music/artist">歌手</a>
+                </li>
+                <li>
+                    <a href="http://music.migu.cn/v3/music/crbt">彩铃</a>
+                </li>
+                <li>
+                    <a href="http://music.migu.cn/v3/music/topic">咪咕出品</a>
+                </li>
+                <li>
+                    <a target="_blank" href="https://i.migu.cn/">音乐人</a>
+                </li>
+            </ul>
+            <ul class="sub-nav-video" style="display:none;">
+                <li>
+                    <a href="http://music.migu.cn/v3/video">首页</a>
+                </li>
+                <li>
+                    <a href="http://music.migu.cn/v3/video/concert">演唱会</a>
+                </li>
+                <li>
+                    <a href="http://music.migu.cn/v3/video/make">独家放送</a>
+                </li>
+                <li>
+                    <a href="http://music.migu.cn/v3/video/mv">MV</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div id="playlist">
+    <div class="songlist-tag">
+        <div class="container">
+            <ul class="hotTags ">
+                <li class="hottag_til">热门歌单</li>
+                <li class="hottag"><a href="http://music.migu.cn/v3/music/playlist?tagId=1000587673">小清新</a></li>
+                <li class="hottag"><a href="http://music.migu.cn/v3/music/playlist?tagId=1001076078">电视剧</a></li>
+                <li class="hottag"><a href="http://music.migu.cn/v3/music/playlist?tagId=1000001775">民谣</a></li>
+                <li class="hottag"><a href="http://music.migu.cn/v3/music/playlist?tagId=1000001749">旅行</a></li>
+                <li class="hottag"><a href="http://music.migu.cn/v3/music/playlist?tagId=1000001703">思念</a></li>
+            </ul>
+            <div class="filter vertical">
+                <div class="tag-name">主题</div>
+                <div class="ptag_normal">
+                    <ul class="tag-list">
+                        <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000001635">经典老歌</a></li>
+                        <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000001670">红歌</a></li>
+                        <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000001675">中国风</a></li>
+                        <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000001698">爱情</a></li>
+                        <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000001780">儿童歌曲</a></li>
+                        <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000001827">KTV</a></li>
+                        <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000587673">小清新</a></li>
+                        <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000587698">游戏</a></li>
+                        <li class="showMoreTag"><a href="javascript:void(0);"><span>更多</span><i
+                                class="iconfont cf-zhankai"></i><i class="iconfont cf-shouqi"></i></a></li>
+                    </ul>
+                    <div class="container">
+                        <div class="pop-tag-mian">
+                            <ul class="pop-tag">
+                                <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000587702">广场舞</a></li>
+                                <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000587706">动漫</a></li>
+                                <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000587712">青春校园</a></li>
+                                <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000587717">70后</a></li>
+                                <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000587718">80后</a></li>
+                                <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000587726">90后</a></li>
+                                <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1001076078">电视剧</a></li>
+                                <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1001076080">电影</a></li>
+                                <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1001076083">综艺</a></li>
+                                <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1001076096">网络热歌</a></li>
+                                <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1003449727">厂牌</a></li>
+                            </ul>
+                            <span class="pop-sjx-posi"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="ptag_1024">
+                    <ul class="tag-list">
+                        <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000001635">经典老歌</a></li>
+                        <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000001670">红歌</a></li>
+                        <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000001675">中国风</a></li>
+                        <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000001698">爱情</a></li>
+                        <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000001780">儿童歌曲</a></li>
+                        <li class="showMoreTag"><a href="javascript:void(0);"><span>更多</span><i
+                                class="iconfont cf-zhankai"></i><i class="iconfont cf-shouqi"></i></a></li>
+                    </ul>
+                    <div class="container">
+                        <div class="pop-tag-mian">
+                            <ul class="pop-tag">
+                                <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000001827">KTV</a></li>
+                                <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000587673">小清新</a></li>
+                                <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000587698">游戏</a></li>
+                                <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000587702">广场舞</a></li>
+                                <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000587706">动漫</a></li>
+                                <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000587712">青春校园</a></li>
+                                <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000587717">70后</a></li>
+                                <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000587718">80后</a></li>
+                                <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000587726">90后</a></li>
+                                <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1001076078">电视剧</a></li>
+                                <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1001076080">电影</a></li>
+                                <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1001076083">综艺</a></li>
+                                <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1001076096">网络热歌</a></li>
+                                <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1003449727">厂牌</a></li>
+                            </ul>
+                            <span class="pop-sjx-posi"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="filter vertical">
+                <div class="tag-name">流派</div>
+                <div class="ptag_normal">
+                    <ul class="tag-list">
+                        <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000001672">流行</a></li>
+                        <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000001674">摇滚</a></li>
+                        <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000001681">爵士</a></li>
+                        <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000001682">电子</a></li>
+                        <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000001683">乡村</a></li>
+                        <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000001775">民谣</a></li>
+                        <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000001783">古典</a></li>
+                        <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000001807">纯音乐</a></li>
+                        <li class="showMoreTag"><a href="javascript:void(0);"><span>更多</span><i
+                                class="iconfont cf-zhankai"></i><i class="iconfont cf-shouqi"></i></a></li>
+                    </ul>
+                    <div class="container">
+                        <div class="pop-tag-mian">
+                            <ul class="pop-tag">
+                                <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000001808">R&amp;B</a></li>
+                                <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000001809">嘻哈</a></li>
+                                <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000001851">蓝调</a></li>
+                                <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000001852">电子舞曲</a></li>
+                            </ul>
+                            <span class="pop-sjx-posi"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="ptag_1024">
+                    <ul class="tag-list">
+                        <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000001672">流行</a></li>
+                        <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000001674">摇滚</a></li>
+                        <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000001681">爵士</a></li>
+                        <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000001682">电子</a></li>
+                        <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000001683">乡村</a></li>
+                        <li class="showMoreTag"><a href="javascript:void(0);"><span>更多</span><i
+                                class="iconfont cf-zhankai"></i><i class="iconfont cf-shouqi"></i></a></li>
+                    </ul>
+                    <div class="container">
+                        <div class="pop-tag-mian">
+                            <ul class="pop-tag">
+                                <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000001775">民谣</a></li>
+                                <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000001783">古典</a></li>
+                                <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000001807">纯音乐</a></li>
+                                <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000001808">R&amp;B</a></li>
+                                <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000001809">嘻哈</a></li>
+                                <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000001851">蓝调</a></li>
+                                <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000001852">电子舞曲</a></li>
+                            </ul>
+                            <span class="pop-sjx-posi"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="filter vertical">
+                <div class="tag-name">语种</div>
+                <div class="ptag_normal">
+                    <ul class="tag-list">
+                        <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000001599">韩语</a></li>
+                        <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000001762">国语</a></li>
+                        <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000001763">粤语</a></li>
+                        <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000001766">英语</a></li>
+                        <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000001767">日语</a></li>
+                        <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1003449724">小语种</a></li>
+                    </ul>
+                    <div class="container">
+                        <div class="pop-tag-mian">
+                            <ul class="pop-tag">
+                            </ul>
+                            <span class="pop-sjx-posi"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="ptag_1024">
+                    <ul class="tag-list">
+                        <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000001599">韩语</a></li>
+                        <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000001762">国语</a></li>
+                        <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000001763">粤语</a></li>
+                        <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000001766">英语</a></li>
+                        <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000001767">日语</a></li>
+                        <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1003449724">小语种</a></li>
+                    </ul>
+                    <div class="container">
+                        <div class="pop-tag-mian">
+                            <ul class="pop-tag">
+                                <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1003449724">小语种</a></li>
+                            </ul>
+                            <span class="pop-sjx-posi"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="filter vertical">
+                <div class="tag-name">场景</div>
+                <div class="ptag_normal">
+                    <ul class="tag-list">
+                        <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000001749">旅行</a></li>
+                        <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000093923">驾车</a></li>
+                        <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000587686">夜店</a></li>
+                        <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000587688">睡前安眠</a></li>
+                        <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000587689">清晨</a></li>
+                        <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000587690">夜晚</a></li>
+                        <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000587694">散步</a></li>
+                        <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1002600606">派对</a></li>
+                        <li class="showMoreTag"><a href="javascript:void(0);"><span>更多</span><i
+                                class="iconfont cf-zhankai"></i><i class="iconfont cf-shouqi"></i></a></li>
+                    </ul>
+                    <div class="container">
+                        <div class="pop-tag-mian">
+                            <ul class="pop-tag">
+                                <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1003449615">体育</a></li>
+                                <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1003449723">下午·茶</a></li>
+                                <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1003449726">读书</a></li>
+                            </ul>
+                            <span class="pop-sjx-posi"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="ptag_1024">
+                    <ul class="tag-list">
+                        <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000001749">旅行</a></li>
+                        <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000093923">驾车</a></li>
+                        <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000587686">夜店</a></li>
+                        <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000587688">睡前安眠</a></li>
+                        <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000587689">清晨</a></li>
+                        <li class="showMoreTag"><a href="javascript:void(0);"><span>更多</span><i
+                                class="iconfont cf-zhankai"></i><i class="iconfont cf-shouqi"></i></a></li>
+                    </ul>
+                    <div class="container">
+                        <div class="pop-tag-mian">
+                            <ul class="pop-tag">
+                                <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000587690">夜晚</a></li>
+                                <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000587694">散步</a></li>
+                                <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1002600606">派对</a></li>
+                                <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1003449615">体育</a></li>
+                                <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1003449723">下午·茶</a></li>
+                                <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1003449726">读书</a></li>
+                            </ul>
+                            <span class="pop-sjx-posi"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="filter vertical">
+                <div class="tag-name">心情</div>
+                <div class="ptag_normal">
+                    <ul class="tag-list">
+                        <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000001694">欢快</a></li>
+                        <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000001696">怀旧</a></li>
+                        <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000001699">寂寞</a></li>
+                        <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000001700">励志</a></li>
+                        <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000001703">思念</a></li>
+                        <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000001795">伤感</a></li>
+                        <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000587667">期待</a></li>
+                        <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000587677">幸福</a></li>
+                        <li class="showMoreTag"><a href="javascript:void(0);"><span>更多</span><i
+                                class="iconfont cf-zhankai"></i><i class="iconfont cf-shouqi"></i></a></li>
+                    </ul>
+                    <div class="container">
+                        <div class="pop-tag-mian">
+                            <ul class="pop-tag">
+                                <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000587679">减压</a></li>
+                                <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000587710">治愈</a></li>
+                                <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1002600579">忧郁</a></li>
+                                <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1002600585">宣泄</a></li>
+                                <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1002600588">叛逆</a></li>
+                            </ul>
+                            <span class="pop-sjx-posi"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="ptag_1024">
+                    <ul class="tag-list">
+                        <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000001694">欢快</a></li>
+                        <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000001696">怀旧</a></li>
+                        <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000001699">寂寞</a></li>
+                        <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000001700">励志</a></li>
+                        <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000001703">思念</a></li>
+                        <li class="showMoreTag"><a href="javascript:void(0);"><span>更多</span><i
+                                class="iconfont cf-zhankai"></i><i class="iconfont cf-shouqi"></i></a></li>
+                    </ul>
+                    <div class="container">
+                        <div class="pop-tag-mian">
+                            <ul class="pop-tag">
+                                <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000001795">伤感</a></li>
+                                <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000587667">期待</a></li>
+                                <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000587677">幸福</a></li>
+                                <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000587679">减压</a></li>
+                                <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1000587710">治愈</a></li>
+                                <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1002600579">忧郁</a></li>
+                                <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1002600585">宣泄</a></li>
+                                <li><a href="http://music.migu.cn/v3/music/playlist?tagId=1002600588">叛逆</a></li>
+                            </ul>
+                            <span class="pop-sjx-posi"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="song-list-all container">
+        <div class="item-title">
+            <div class="currchannel">
+                <h2 class="curr-filter-text">
+                    全部歌单</h2>
+            </div>
+            <div class="song-list-tab clearfix">
+                <span class="on"><a href="javascript:;">推荐</a></span>
+                <span><a href="http://music.migu.cn/v3/music/playlist?sort=latest">最新</a></span>
+            </div>
+        </div>
+    </div>
+    <div class="song-list-cont container">
+        <ul class="clearfix">
+            <li>
+                <div class="thumb">
+                    <div class="music-cover">
+                        <a href="http://music.migu.cn/v3/music/playlist/155549789">
+                            <img src="%E9%9F%B3%E4%B9%90-%E6%AD%8C%E5%8D%95-%E5%92%AA%E5%92%95%E9%9F%B3%E4%B9%90%E7%BD%91_%E6%94%BE%E8%82%86%E5%90%AC%C2%B7%E8%B6%A3%E7%8E%A9%E4%B9%90_files/3ca945ca-699b-4657-8d10-bd3f1f2b2c74.jfif"
+                                 data-original="http://d.musicapp.migu.cn/ugcdata/playListimg/3ca945ca-699b-4657-8d10-bd3f1f2b2c74.jpg"
+                                 class="img-full img-block lazy300x300" style="display: block;">
+                        </a>
+                        <span class="play-btn action-btn playlist-play" data-id="155549789">
+<img src="%E9%9F%B3%E4%B9%90-%E6%AD%8C%E5%8D%95-%E5%92%AA%E5%92%95%E9%9F%B3%E4%B9%90%E7%BD%91_%E6%94%BE%E8%82%86%E5%90%AC%C2%B7%E8%B6%A3%E7%8E%A9%E4%B9%90_files/btn-play.png"
+     alt="">
+</span>
+                    </div>
+                    <div class="song-list-name">
+                        <a href="http://music.migu.cn/v3/music/playlist/155549789"
+                           title="致敬Beyond，经典永存">致敬Beyond，经典永存</a>
+                    </div>
+                    <div class="song-list-desc clearfix hide">
+                        <div class="desc-text creatorName">
+                            <i class="iconfont cf-bofangliang"></i>
+                            0
+                        </div>
+                    </div>
+                    <div class="item-action">
+                        <i class="iconfont cf-xihuan-big collect-playlist" data-playlistid="155549789"></i>
+                        <i class="iconfont cf-fenxiang-big J-btn-share" data-sharetype="2"
+                           data-share="{&quot;type&quot;:&quot;songlist&quot;,&quot;title&quot;:&quot;致敬Beyond，经典永存&quot;,&quot;linkUrl&quot;:&quot;/v3/music/playlist/155549789&quot;,&quot;imgUrl&quot;:&quot;http://d.musicapp.migu.cn/ugcdata/playListimg/3ca945ca-699b-4657-8d10-bd3f1f2b2c74.jpg&quot;,&quot;summary&quot;:&quot;&quot;,&quot;singer&quot;:&quot;&quot;,&quot;album&quot;:&quot;&quot;}"></i>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="thumb">
+                    <div class="music-cover">
+                        <a href="http://music.migu.cn/v3/music/playlist/155549919">
+                            <img src="%E9%9F%B3%E4%B9%90-%E6%AD%8C%E5%8D%95-%E5%92%AA%E5%92%95%E9%9F%B3%E4%B9%90%E7%BD%91_%E6%94%BE%E8%82%86%E5%90%AC%C2%B7%E8%B6%A3%E7%8E%A9%E4%B9%90_files/a43f4f93-6468-4e07-87c1-3420a5fc07e7.jfif"
+                                 data-original="http://d.musicapp.migu.cn/ugcdata/playListimg/a43f4f93-6468-4e07-87c1-3420a5fc07e7.jpg"
+                                 class="img-full img-block lazy300x300" style="display: block;">
+                        </a>
+                        <span class="play-btn action-btn playlist-play" data-id="155549919">
+<img src="%E9%9F%B3%E4%B9%90-%E6%AD%8C%E5%8D%95-%E5%92%AA%E5%92%95%E9%9F%B3%E4%B9%90%E7%BD%91_%E6%94%BE%E8%82%86%E5%90%AC%C2%B7%E8%B6%A3%E7%8E%A9%E4%B9%90_files/btn-play.png"
+     alt="">
+</span>
+                    </div>
+                    <div class="song-list-name">
+                        <a href="http://music.migu.cn/v3/music/playlist/155549919" title="纵然世界如何，愿你依然活得像孩子">纵然世界如何，愿你依然活得像孩子</a>
+                    </div>
+                    <div class="song-list-desc clearfix hide">
+                        <div class="desc-text creatorName">
+                            <i class="iconfont cf-bofangliang"></i>
+                            0
+                        </div>
+                    </div>
+                    <div class="item-action">
+                        <i class="iconfont cf-xihuan-big collect-playlist" data-playlistid="155549919"></i>
+                        <i class="iconfont cf-fenxiang-big J-btn-share" data-sharetype="2"
+                           data-share="{&quot;type&quot;:&quot;songlist&quot;,&quot;title&quot;:&quot;纵然世界如何，愿你依然活得像孩子&quot;,&quot;linkUrl&quot;:&quot;/v3/music/playlist/155549919&quot;,&quot;imgUrl&quot;:&quot;http://d.musicapp.migu.cn/ugcdata/playListimg/a43f4f93-6468-4e07-87c1-3420a5fc07e7.jpg&quot;,&quot;summary&quot;:&quot;&quot;,&quot;singer&quot;:&quot;&quot;,&quot;album&quot;:&quot;&quot;}"></i>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="thumb">
+                    <div class="music-cover">
+                        <a href="http://music.migu.cn/v3/music/playlist/155549347">
+                            <img src="%E9%9F%B3%E4%B9%90-%E6%AD%8C%E5%8D%95-%E5%92%AA%E5%92%95%E9%9F%B3%E4%B9%90%E7%BD%91_%E6%94%BE%E8%82%86%E5%90%AC%C2%B7%E8%B6%A3%E7%8E%A9%E4%B9%90_files/e63f8dab-490e-478c-bd6b-cb49251e0208.jfif"
+                                 data-original="http://d.musicapp.migu.cn/ugcdata/playListimg/e63f8dab-490e-478c-bd6b-cb49251e0208.jpg"
+                                 class="img-full img-block lazy300x300" style="display: block;">
+                        </a>
+                        <span class="play-btn action-btn playlist-play" data-id="155549347">
+<img src="%E9%9F%B3%E4%B9%90-%E6%AD%8C%E5%8D%95-%E5%92%AA%E5%92%95%E9%9F%B3%E4%B9%90%E7%BD%91_%E6%94%BE%E8%82%86%E5%90%AC%C2%B7%E8%B6%A3%E7%8E%A9%E4%B9%90_files/btn-play.png"
+     alt="">
+</span>
+                    </div>
+                    <div class="song-list-name">
+                        <a href="http://music.migu.cn/v3/music/playlist/155549347"
+                           title="地铁听歌向，逃离生活的忙碌">地铁听歌向，逃离生活的忙碌</a>
+                    </div>
+                    <div class="song-list-desc clearfix hide">
+                        <div class="desc-text creatorName">
+                            <i class="iconfont cf-bofangliang"></i>
+                            0
+                        </div>
+                    </div>
+                    <div class="item-action">
+                        <i class="iconfont cf-xihuan-big collect-playlist" data-playlistid="155549347"></i>
+                        <i class="iconfont cf-fenxiang-big J-btn-share" data-sharetype="2"
+                           data-share="{&quot;type&quot;:&quot;songlist&quot;,&quot;title&quot;:&quot;地铁听歌向，逃离生活的忙碌&quot;,&quot;linkUrl&quot;:&quot;/v3/music/playlist/155549347&quot;,&quot;imgUrl&quot;:&quot;http://d.musicapp.migu.cn/ugcdata/playListimg/e63f8dab-490e-478c-bd6b-cb49251e0208.jpg&quot;,&quot;summary&quot;:&quot;&quot;,&quot;singer&quot;:&quot;&quot;,&quot;album&quot;:&quot;&quot;}"></i>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="thumb">
+                    <div class="music-cover">
+                        <a href="http://music.migu.cn/v3/music/playlist/155549574">
+                            <img src="%E9%9F%B3%E4%B9%90-%E6%AD%8C%E5%8D%95-%E5%92%AA%E5%92%95%E9%9F%B3%E4%B9%90%E7%BD%91_%E6%94%BE%E8%82%86%E5%90%AC%C2%B7%E8%B6%A3%E7%8E%A9%E4%B9%90_files/3173b7d6-e822-44bc-abee-9d31646cbb25.jfif"
+                                 data-original="http://d.musicapp.migu.cn/ugcdata/playListimg/3173b7d6-e822-44bc-abee-9d31646cbb25.jpg"
+                                 class="img-full img-block lazy300x300" style="display: block;">
+                        </a>
+                        <span class="play-btn action-btn playlist-play" data-id="155549574">
+<img src="%E9%9F%B3%E4%B9%90-%E6%AD%8C%E5%8D%95-%E5%92%AA%E5%92%95%E9%9F%B3%E4%B9%90%E7%BD%91_%E6%94%BE%E8%82%86%E5%90%AC%C2%B7%E8%B6%A3%E7%8E%A9%E4%B9%90_files/btn-play.png"
+     alt="">
+</span>
+                    </div>
+                    <div class="song-list-name">
+                        <a href="http://music.migu.cn/v3/music/playlist/155549574" title=" 日系治愈|疗伤充电站"> 日系治愈|疗伤充电站</a>
+                    </div>
+                    <div class="song-list-desc clearfix hide">
+                        <div class="desc-text creatorName">
+                            <i class="iconfont cf-bofangliang"></i>
+                            0
+                        </div>
+                    </div>
+                    <div class="item-action">
+                        <i class="iconfont cf-xihuan-big collect-playlist" data-playlistid="155549574"></i>
+                        <i class="iconfont cf-fenxiang-big J-btn-share" data-sharetype="2"
+                           data-share="{&quot;type&quot;:&quot;songlist&quot;,&quot;title&quot;:&quot; 日系治愈|疗伤充电站&quot;,&quot;linkUrl&quot;:&quot;/v3/music/playlist/155549574&quot;,&quot;imgUrl&quot;:&quot;http://d.musicapp.migu.cn/ugcdata/playListimg/3173b7d6-e822-44bc-abee-9d31646cbb25.jpg&quot;,&quot;summary&quot;:&quot;&quot;,&quot;singer&quot;:&quot;&quot;,&quot;album&quot;:&quot;&quot;}"></i>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="thumb">
+                    <div class="music-cover">
+                        <a href="http://music.migu.cn/v3/music/playlist/155549844">
+                            <img src="%E9%9F%B3%E4%B9%90-%E6%AD%8C%E5%8D%95-%E5%92%AA%E5%92%95%E9%9F%B3%E4%B9%90%E7%BD%91_%E6%94%BE%E8%82%86%E5%90%AC%C2%B7%E8%B6%A3%E7%8E%A9%E4%B9%90_files/bd23161c-0f0f-45df-ae20-854b5c4b6ae6.jfif"
+                                 data-original="http://d.musicapp.migu.cn/ugcdata/playListimg/bd23161c-0f0f-45df-ae20-854b5c4b6ae6.jpg"
+                                 class="img-full img-block lazy300x300" style="display: block;">
+                        </a>
+                        <span class="play-btn action-btn playlist-play" data-id="155549844">
+<img src="%E9%9F%B3%E4%B9%90-%E6%AD%8C%E5%8D%95-%E5%92%AA%E5%92%95%E9%9F%B3%E4%B9%90%E7%BD%91_%E6%94%BE%E8%82%86%E5%90%AC%C2%B7%E8%B6%A3%E7%8E%A9%E4%B9%90_files/btn-play.png"
+     alt="">
+</span>
+                    </div>
+                    <div class="song-list-name">
+                        <a href="http://music.migu.cn/v3/music/playlist/155549844" title="原创风向：独立清新下的生活态度">原创风向：独立清新下的生活态度</a>
+                    </div>
+                    <div class="song-list-desc clearfix hide">
+                        <div class="desc-text creatorName">
+                            <i class="iconfont cf-bofangliang"></i>
+                            0
+                        </div>
+                    </div>
+                    <div class="item-action">
+                        <i class="iconfont cf-xihuan-big collect-playlist" data-playlistid="155549844"></i>
+                        <i class="iconfont cf-fenxiang-big J-btn-share" data-sharetype="2"
+                           data-share="{&quot;type&quot;:&quot;songlist&quot;,&quot;title&quot;:&quot;原创风向：独立清新下的生活态度&quot;,&quot;linkUrl&quot;:&quot;/v3/music/playlist/155549844&quot;,&quot;imgUrl&quot;:&quot;http://d.musicapp.migu.cn/ugcdata/playListimg/bd23161c-0f0f-45df-ae20-854b5c4b6ae6.jpg&quot;,&quot;summary&quot;:&quot;&quot;,&quot;singer&quot;:&quot;&quot;,&quot;album&quot;:&quot;&quot;}"></i>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="thumb">
+                    <div class="music-cover">
+                        <a href="http://music.migu.cn/v3/music/playlist/155461659">
+                            <img src="%E9%9F%B3%E4%B9%90-%E6%AD%8C%E5%8D%95-%E5%92%AA%E5%92%95%E9%9F%B3%E4%B9%90%E7%BD%91_%E6%94%BE%E8%82%86%E5%90%AC%C2%B7%E8%B6%A3%E7%8E%A9%E4%B9%90_files/img_default_300x300.jfif"
+                                 data-original="http://d.musicapp.migu.cn/ugcdata/playListimg/658eb873-1a37-400e-bfc1-95537dcda154.jpg"
+                                 class="img-full img-block lazy300x300">
+                        </a>
+                        <span class="play-btn action-btn playlist-play" data-id="155461659">
+<img src="%E9%9F%B3%E4%B9%90-%E6%AD%8C%E5%8D%95-%E5%92%AA%E5%92%95%E9%9F%B3%E4%B9%90%E7%BD%91_%E6%94%BE%E8%82%86%E5%90%AC%C2%B7%E8%B6%A3%E7%8E%A9%E4%B9%90_files/btn-play.png"
+     alt="">
+</span>
+                    </div>
+                    <div class="song-list-name">
+                        <a href="http://music.migu.cn/v3/music/playlist/155461659"
+                           title="听觉地图：时光中的音乐与城市">听觉地图：时光中的音乐与城市</a>
+                    </div>
+                    <div class="song-list-desc clearfix hide">
+                        <div class="desc-text creatorName">
+                            <i class="iconfont cf-bofangliang"></i>
+                            0
+                        </div>
+                    </div>
+                    <div class="item-action">
+                        <i class="iconfont cf-xihuan-big collect-playlist" data-playlistid="155461659"></i>
+                        <i class="iconfont cf-fenxiang-big J-btn-share" data-sharetype="2"
+                           data-share="{&quot;type&quot;:&quot;songlist&quot;,&quot;title&quot;:&quot;听觉地图：时光中的音乐与城市&quot;,&quot;linkUrl&quot;:&quot;/v3/music/playlist/155461659&quot;,&quot;imgUrl&quot;:&quot;http://d.musicapp.migu.cn/ugcdata/playListimg/658eb873-1a37-400e-bfc1-95537dcda154.jpg&quot;,&quot;summary&quot;:&quot;&quot;,&quot;singer&quot;:&quot;&quot;,&quot;album&quot;:&quot;&quot;}"></i>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="thumb">
+                    <div class="music-cover">
+                        <a href="http://music.migu.cn/v3/music/playlist/155482994">
+                            <img src="%E9%9F%B3%E4%B9%90-%E6%AD%8C%E5%8D%95-%E5%92%AA%E5%92%95%E9%9F%B3%E4%B9%90%E7%BD%91_%E6%94%BE%E8%82%86%E5%90%AC%C2%B7%E8%B6%A3%E7%8E%A9%E4%B9%90_files/img_default_300x300.jfif"
+                                 data-original="http://d.musicapp.migu.cn/ugcdata/playListimg/5eae16fc-d5c2-4388-b72c-cf4bc61f09f5.jpg"
+                                 class="img-full img-block lazy300x300">
+                        </a>
+                        <span class="play-btn action-btn playlist-play" data-id="155482994">
+<img src="%E9%9F%B3%E4%B9%90-%E6%AD%8C%E5%8D%95-%E5%92%AA%E5%92%95%E9%9F%B3%E4%B9%90%E7%BD%91_%E6%94%BE%E8%82%86%E5%90%AC%C2%B7%E8%B6%A3%E7%8E%A9%E4%B9%90_files/btn-play.png"
+     alt="">
+</span>
+                    </div>
+                    <div class="song-list-name">
+                        <a href="http://music.migu.cn/v3/music/playlist/155482994"
+                           title="快步健走，脚下生风耳边生乐">快步健走，脚下生风耳边生乐</a>
+                    </div>
+                    <div class="song-list-desc clearfix hide">
+                        <div class="desc-text creatorName">
+                            <i class="iconfont cf-bofangliang"></i>
+                            0
+                        </div>
+                    </div>
+                    <div class="item-action">
+                        <i class="iconfont cf-xihuan-big collect-playlist" data-playlistid="155482994"></i>
+                        <i class="iconfont cf-fenxiang-big J-btn-share" data-sharetype="2"
+                           data-share="{&quot;type&quot;:&quot;songlist&quot;,&quot;title&quot;:&quot;快步健走，脚下生风耳边生乐&quot;,&quot;linkUrl&quot;:&quot;/v3/music/playlist/155482994&quot;,&quot;imgUrl&quot;:&quot;http://d.musicapp.migu.cn/ugcdata/playListimg/5eae16fc-d5c2-4388-b72c-cf4bc61f09f5.jpg&quot;,&quot;summary&quot;:&quot;&quot;,&quot;singer&quot;:&quot;&quot;,&quot;album&quot;:&quot;&quot;}"></i>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="thumb">
+                    <div class="music-cover">
+                        <a href="http://music.migu.cn/v3/music/playlist/155483521">
+                            <img src="%E9%9F%B3%E4%B9%90-%E6%AD%8C%E5%8D%95-%E5%92%AA%E5%92%95%E9%9F%B3%E4%B9%90%E7%BD%91_%E6%94%BE%E8%82%86%E5%90%AC%C2%B7%E8%B6%A3%E7%8E%A9%E4%B9%90_files/img_default_300x300.jfif"
+                                 data-original="http://d.musicapp.migu.cn/ugcdata/playListimg/6ce39f86-691f-40bd-b9e4-629a841f98b3.jpg"
+                                 class="img-full img-block lazy300x300">
+                        </a>
+                        <span class="play-btn action-btn playlist-play" data-id="155483521">
+<img src="%E9%9F%B3%E4%B9%90-%E6%AD%8C%E5%8D%95-%E5%92%AA%E5%92%95%E9%9F%B3%E4%B9%90%E7%BD%91_%E6%94%BE%E8%82%86%E5%90%AC%C2%B7%E8%B6%A3%E7%8E%A9%E4%B9%90_files/btn-play.png"
+     alt="">
+</span>
+                    </div>
+                    <div class="song-list-name">
+                        <a href="http://music.migu.cn/v3/music/playlist/155483521" title="风景成诗，有氧室外慢跑">风景成诗，有氧室外慢跑</a>
+                    </div>
+                    <div class="song-list-desc clearfix hide">
+                        <div class="desc-text creatorName">
+                            <i class="iconfont cf-bofangliang"></i>
+                            0
+                        </div>
+                    </div>
+                    <div class="item-action">
+                        <i class="iconfont cf-xihuan-big collect-playlist" data-playlistid="155483521"></i>
+                        <i class="iconfont cf-fenxiang-big J-btn-share" data-sharetype="2"
+                           data-share="{&quot;type&quot;:&quot;songlist&quot;,&quot;title&quot;:&quot;风景成诗，有氧室外慢跑&quot;,&quot;linkUrl&quot;:&quot;/v3/music/playlist/155483521&quot;,&quot;imgUrl&quot;:&quot;http://d.musicapp.migu.cn/ugcdata/playListimg/6ce39f86-691f-40bd-b9e4-629a841f98b3.jpg&quot;,&quot;summary&quot;:&quot;&quot;,&quot;singer&quot;:&quot;&quot;,&quot;album&quot;:&quot;&quot;}"></i>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="thumb">
+                    <div class="music-cover">
+                        <a href="http://music.migu.cn/v3/music/playlist/155482160">
+                            <img src="%E9%9F%B3%E4%B9%90-%E6%AD%8C%E5%8D%95-%E5%92%AA%E5%92%95%E9%9F%B3%E4%B9%90%E7%BD%91_%E6%94%BE%E8%82%86%E5%90%AC%C2%B7%E8%B6%A3%E7%8E%A9%E4%B9%90_files/img_default_300x300.jfif"
+                                 data-original="http://d.musicapp.migu.cn/ugcdata/playListimg/6beddd69-f6c7-4b86-814f-f7b9c3f35979.jpg"
+                                 class="img-full img-block lazy300x300">
+                        </a>
+                        <span class="play-btn action-btn playlist-play" data-id="155482160">
+<img src="%E9%9F%B3%E4%B9%90-%E6%AD%8C%E5%8D%95-%E5%92%AA%E5%92%95%E9%9F%B3%E4%B9%90%E7%BD%91_%E6%94%BE%E8%82%86%E5%90%AC%C2%B7%E8%B6%A3%E7%8E%A9%E4%B9%90_files/btn-play.png"
+     alt="">
+</span>
+                    </div>
+                    <div class="song-list-name">
+                        <a href="http://music.migu.cn/v3/music/playlist/155482160" title="夏日午后的静谧轻音">夏日午后的静谧轻音</a>
+                    </div>
+                    <div class="song-list-desc clearfix hide">
+                        <div class="desc-text creatorName">
+                            <i class="iconfont cf-bofangliang"></i>
+                            0
+                        </div>
+                    </div>
+                    <div class="item-action">
+                        <i class="iconfont cf-xihuan-big collect-playlist" data-playlistid="155482160"></i>
+                        <i class="iconfont cf-fenxiang-big J-btn-share" data-sharetype="2"
+                           data-share="{&quot;type&quot;:&quot;songlist&quot;,&quot;title&quot;:&quot;夏日午后的静谧轻音&quot;,&quot;linkUrl&quot;:&quot;/v3/music/playlist/155482160&quot;,&quot;imgUrl&quot;:&quot;http://d.musicapp.migu.cn/ugcdata/playListimg/6beddd69-f6c7-4b86-814f-f7b9c3f35979.jpg&quot;,&quot;summary&quot;:&quot;&quot;,&quot;singer&quot;:&quot;&quot;,&quot;album&quot;:&quot;&quot;}"></i>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="thumb">
+                    <div class="music-cover">
+                        <a href="http://music.migu.cn/v3/music/playlist/155482428">
+                            <img src="%E9%9F%B3%E4%B9%90-%E6%AD%8C%E5%8D%95-%E5%92%AA%E5%92%95%E9%9F%B3%E4%B9%90%E7%BD%91_%E6%94%BE%E8%82%86%E5%90%AC%C2%B7%E8%B6%A3%E7%8E%A9%E4%B9%90_files/img_default_300x300.jfif"
+                                 data-original="http://d.musicapp.migu.cn/ugcdata/playListimg/b97dbe9f-1191-48db-8dd2-80ce040ed7db.jpg"
+                                 class="img-full img-block lazy300x300">
+                        </a>
+                        <span class="play-btn action-btn playlist-play" data-id="155482428">
+<img src="%E9%9F%B3%E4%B9%90-%E6%AD%8C%E5%8D%95-%E5%92%AA%E5%92%95%E9%9F%B3%E4%B9%90%E7%BD%91_%E6%94%BE%E8%82%86%E5%90%AC%C2%B7%E8%B6%A3%E7%8E%A9%E4%B9%90_files/btn-play.png"
+     alt="">
+</span>
+                    </div>
+                    <div class="song-list-name">
+                        <a href="http://music.migu.cn/v3/music/playlist/155482428" title="Song to Sing in the Shower">Song
+                            to Sing in the Shower</a>
+                    </div>
+                    <div class="song-list-desc clearfix hide">
+                        <div class="desc-text creatorName">
+                            <i class="iconfont cf-bofangliang"></i>
+                            0
+                        </div>
+                    </div>
+                    <div class="item-action">
+                        <i class="iconfont cf-xihuan-big collect-playlist" data-playlistid="155482428"></i>
+                        <i class="iconfont cf-fenxiang-big J-btn-share" data-sharetype="2"
+                           data-share="{&quot;type&quot;:&quot;songlist&quot;,&quot;title&quot;:&quot;Song to Sing in the Shower&quot;,&quot;linkUrl&quot;:&quot;/v3/music/playlist/155482428&quot;,&quot;imgUrl&quot;:&quot;http://d.musicapp.migu.cn/ugcdata/playListimg/b97dbe9f-1191-48db-8dd2-80ce040ed7db.jpg&quot;,&quot;summary&quot;:&quot;&quot;,&quot;singer&quot;:&quot;&quot;,&quot;album&quot;:&quot;&quot;}"></i>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="thumb">
+                    <div class="music-cover">
+                        <a href="http://music.migu.cn/v3/music/playlist/154969462">
+                            <img src="%E9%9F%B3%E4%B9%90-%E6%AD%8C%E5%8D%95-%E5%92%AA%E5%92%95%E9%9F%B3%E4%B9%90%E7%BD%91_%E6%94%BE%E8%82%86%E5%90%AC%C2%B7%E8%B6%A3%E7%8E%A9%E4%B9%90_files/img_default_300x300.jfif"
+                                 data-original="http://d.musicapp.migu.cn/ugcdata/playListimg/26ba47a3-c7e3-403a-881e-c19099fe99b8.jpg"
+                                 class="img-full img-block lazy300x300">
+                        </a>
+                        <span class="play-btn action-btn playlist-play" data-id="154969462">
+<img src="%E9%9F%B3%E4%B9%90-%E6%AD%8C%E5%8D%95-%E5%92%AA%E5%92%95%E9%9F%B3%E4%B9%90%E7%BD%91_%E6%94%BE%E8%82%86%E5%90%AC%C2%B7%E8%B6%A3%E7%8E%A9%E4%B9%90_files/btn-play.png"
+     alt="">
+</span>
+                    </div>
+                    <div class="song-list-name">
+                        <a href="http://music.migu.cn/v3/music/playlist/154969462" title="心旷神怡，在七月捡拾绿色">心旷神怡，在七月捡拾绿色</a>
+                    </div>
+                    <div class="song-list-desc clearfix hide">
+                        <div class="desc-text creatorName">
+                            <i class="iconfont cf-bofangliang"></i>
+                            0
+                        </div>
+                    </div>
+                    <div class="item-action">
+                        <i class="iconfont cf-xihuan-big collect-playlist" data-playlistid="154969462"></i>
+                        <i class="iconfont cf-fenxiang-big J-btn-share" data-sharetype="2"
+                           data-share="{&quot;type&quot;:&quot;songlist&quot;,&quot;title&quot;:&quot;心旷神怡，在七月捡拾绿色&quot;,&quot;linkUrl&quot;:&quot;/v3/music/playlist/154969462&quot;,&quot;imgUrl&quot;:&quot;http://d.musicapp.migu.cn/ugcdata/playListimg/26ba47a3-c7e3-403a-881e-c19099fe99b8.jpg&quot;,&quot;summary&quot;:&quot;&quot;,&quot;singer&quot;:&quot;&quot;,&quot;album&quot;:&quot;&quot;}"></i>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="thumb">
+                    <div class="music-cover">
+                        <a href="http://music.migu.cn/v3/music/playlist/154970975">
+                            <img src="%E9%9F%B3%E4%B9%90-%E6%AD%8C%E5%8D%95-%E5%92%AA%E5%92%95%E9%9F%B3%E4%B9%90%E7%BD%91_%E6%94%BE%E8%82%86%E5%90%AC%C2%B7%E8%B6%A3%E7%8E%A9%E4%B9%90_files/img_default_300x300.jfif"
+                                 data-original="http://d.musicapp.migu.cn/ugcdata/playListimg/9a8a340b-e108-4afe-b243-ac464feed3b2.jpg"
+                                 class="img-full img-block lazy300x300">
+                        </a>
+                        <span class="play-btn action-btn playlist-play" data-id="154970975">
+<img src="%E9%9F%B3%E4%B9%90-%E6%AD%8C%E5%8D%95-%E5%92%AA%E5%92%95%E9%9F%B3%E4%B9%90%E7%BD%91_%E6%94%BE%E8%82%86%E5%90%AC%C2%B7%E8%B6%A3%E7%8E%A9%E4%B9%90_files/btn-play.png"
+     alt="">
+</span>
+                    </div>
+                    <div class="song-list-name">
+                        <a href="http://music.migu.cn/v3/music/playlist/154970975" title="皮一下就很开心的歌">皮一下就很开心的歌</a>
+                    </div>
+                    <div class="song-list-desc clearfix hide">
+                        <div class="desc-text creatorName">
+                            <i class="iconfont cf-bofangliang"></i>
+                            0
+                        </div>
+                    </div>
+                    <div class="item-action">
+                        <i class="iconfont cf-xihuan-big collect-playlist" data-playlistid="154970975"></i>
+                        <i class="iconfont cf-fenxiang-big J-btn-share" data-sharetype="2"
+                           data-share="{&quot;type&quot;:&quot;songlist&quot;,&quot;title&quot;:&quot;皮一下就很开心的歌&quot;,&quot;linkUrl&quot;:&quot;/v3/music/playlist/154970975&quot;,&quot;imgUrl&quot;:&quot;http://d.musicapp.migu.cn/ugcdata/playListimg/9a8a340b-e108-4afe-b243-ac464feed3b2.jpg&quot;,&quot;summary&quot;:&quot;&quot;,&quot;singer&quot;:&quot;&quot;,&quot;album&quot;:&quot;&quot;}"></i>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="thumb">
+                    <div class="music-cover">
+                        <a href="http://music.migu.cn/v3/music/playlist/154895722">
+                            <img src="%E9%9F%B3%E4%B9%90-%E6%AD%8C%E5%8D%95-%E5%92%AA%E5%92%95%E9%9F%B3%E4%B9%90%E7%BD%91_%E6%94%BE%E8%82%86%E5%90%AC%C2%B7%E8%B6%A3%E7%8E%A9%E4%B9%90_files/img_default_300x300.jfif"
+                                 data-original="http://d.musicapp.migu.cn/ugcdata/playListimg/f21d6b52-1c12-4f62-ba95-7bee7102ee21.jpg"
+                                 class="img-full img-block lazy300x300">
+                        </a>
+                        <span class="play-btn action-btn playlist-play" data-id="154895722">
+<img src="%E9%9F%B3%E4%B9%90-%E6%AD%8C%E5%8D%95-%E5%92%AA%E5%92%95%E9%9F%B3%E4%B9%90%E7%BD%91_%E6%94%BE%E8%82%86%E5%90%AC%C2%B7%E8%B6%A3%E7%8E%A9%E4%B9%90_files/btn-play.png"
+     alt="">
+</span>
+                    </div>
+                    <div class="song-list-name">
+                        <a href="http://music.migu.cn/v3/music/playlist/154895722" title="旅行路上带上旅行团">旅行路上带上旅行团</a>
+                    </div>
+                    <div class="song-list-desc clearfix hide">
+                        <div class="desc-text creatorName">
+                            <i class="iconfont cf-bofangliang"></i>
+                            0
+                        </div>
+                    </div>
+                    <div class="item-action">
+                        <i class="iconfont cf-xihuan-big collect-playlist" data-playlistid="154895722"></i>
+                        <i class="iconfont cf-fenxiang-big J-btn-share" data-sharetype="2"
+                           data-share="{&quot;type&quot;:&quot;songlist&quot;,&quot;title&quot;:&quot;旅行路上带上旅行团&quot;,&quot;linkUrl&quot;:&quot;/v3/music/playlist/154895722&quot;,&quot;imgUrl&quot;:&quot;http://d.musicapp.migu.cn/ugcdata/playListimg/f21d6b52-1c12-4f62-ba95-7bee7102ee21.jpg&quot;,&quot;summary&quot;:&quot;&quot;,&quot;singer&quot;:&quot;&quot;,&quot;album&quot;:&quot;&quot;}"></i>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="thumb">
+                    <div class="music-cover">
+                        <a href="http://music.migu.cn/v3/music/playlist/106176668">
+                            <img src="%E9%9F%B3%E4%B9%90-%E6%AD%8C%E5%8D%95-%E5%92%AA%E5%92%95%E9%9F%B3%E4%B9%90%E7%BD%91_%E6%94%BE%E8%82%86%E5%90%AC%C2%B7%E8%B6%A3%E7%8E%A9%E4%B9%90_files/img_default_300x300.jfif"
+                                 data-original="http://d.musicapp.migu.cn/ugcdata/playListimg/33cc45bd-4c79-4e8b-b230-b93de51d0f95.jpg"
+                                 class="img-full img-block lazy300x300">
+                        </a>
+                        <span class="play-btn action-btn playlist-play" data-id="106176668">
+<img src="%E9%9F%B3%E4%B9%90-%E6%AD%8C%E5%8D%95-%E5%92%AA%E5%92%95%E9%9F%B3%E4%B9%90%E7%BD%91_%E6%94%BE%E8%82%86%E5%90%AC%C2%B7%E8%B6%A3%E7%8E%A9%E4%B9%90_files/btn-play.png"
+     alt="">
+</span>
+                    </div>
+                    <div class="song-list-name">
+                        <a href="http://music.migu.cn/v3/music/playlist/106176668"
+                           title="那些叫醒你耳朵的正能量音乐">那些叫醒你耳朵的正能量音乐</a>
+                    </div>
+                    <div class="song-list-desc clearfix hide">
+                        <div class="desc-text creatorName">
+                            <i class="iconfont cf-bofangliang"></i>
+                            1116
+                        </div>
+                    </div>
+                    <div class="item-action">
+                        <i class="iconfont cf-xihuan-big collect-playlist" data-playlistid="106176668"></i>
+                        <i class="iconfont cf-fenxiang-big J-btn-share" data-sharetype="2"
+                           data-share="{&quot;type&quot;:&quot;songlist&quot;,&quot;title&quot;:&quot;那些叫醒你耳朵的正能量音乐&quot;,&quot;linkUrl&quot;:&quot;/v3/music/playlist/106176668&quot;,&quot;imgUrl&quot;:&quot;http://d.musicapp.migu.cn/ugcdata/playListimg/33cc45bd-4c79-4e8b-b230-b93de51d0f95.jpg&quot;,&quot;summary&quot;:&quot;&quot;,&quot;singer&quot;:&quot;&quot;,&quot;album&quot;:&quot;&quot;}"></i>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="thumb">
+                    <div class="music-cover">
+                        <a href="http://music.migu.cn/v3/music/playlist/132545313">
+                            <img src="%E9%9F%B3%E4%B9%90-%E6%AD%8C%E5%8D%95-%E5%92%AA%E5%92%95%E9%9F%B3%E4%B9%90%E7%BD%91_%E6%94%BE%E8%82%86%E5%90%AC%C2%B7%E8%B6%A3%E7%8E%A9%E4%B9%90_files/img_default_300x300.jfif"
+                                 data-original="http://d.musicapp.migu.cn/ugcdata/playListimg/bacf84d8-9ab0-411c-93e3-1913e9b67cc0.jpg"
+                                 class="img-full img-block lazy300x300">
+                        </a>
+                        <span class="play-btn action-btn playlist-play" data-id="132545313">
+<img src="%E9%9F%B3%E4%B9%90-%E6%AD%8C%E5%8D%95-%E5%92%AA%E5%92%95%E9%9F%B3%E4%B9%90%E7%BD%91_%E6%94%BE%E8%82%86%E5%90%AC%C2%B7%E8%B6%A3%E7%8E%A9%E4%B9%90_files/btn-play.png"
+     alt="">
+</span>
+                    </div>
+                    <div class="song-list-name">
+                        <a href="http://music.migu.cn/v3/music/playlist/132545313" title="中国风民谣|一番清意味，留与知音品">中国风民谣|一番清意味，留与知音品</a>
+                    </div>
+                    <div class="song-list-desc clearfix hide">
+                        <div class="desc-text creatorName">
+                            <i class="iconfont cf-bofangliang"></i>
+                            1.2W
+                        </div>
+                    </div>
+                    <div class="item-action">
+                        <i class="iconfont cf-xihuan-big collect-playlist" data-playlistid="132545313"></i>
+                        <i class="iconfont cf-fenxiang-big J-btn-share" data-sharetype="2"
+                           data-share="{&quot;type&quot;:&quot;songlist&quot;,&quot;title&quot;:&quot;中国风民谣|一番清意味，留与知音品&quot;,&quot;linkUrl&quot;:&quot;/v3/music/playlist/132545313&quot;,&quot;imgUrl&quot;:&quot;http://d.musicapp.migu.cn/ugcdata/playListimg/bacf84d8-9ab0-411c-93e3-1913e9b67cc0.jpg&quot;,&quot;summary&quot;:&quot;&quot;,&quot;singer&quot;:&quot;&quot;,&quot;album&quot;:&quot;&quot;}"></i>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="thumb">
+                    <div class="music-cover">
+                        <a href="http://music.migu.cn/v3/music/playlist/154821116">
+                            <img src="%E9%9F%B3%E4%B9%90-%E6%AD%8C%E5%8D%95-%E5%92%AA%E5%92%95%E9%9F%B3%E4%B9%90%E7%BD%91_%E6%94%BE%E8%82%86%E5%90%AC%C2%B7%E8%B6%A3%E7%8E%A9%E4%B9%90_files/img_default_300x300.jfif"
+                                 data-original="http://d.musicapp.migu.cn/ugcdata/playListimg/65ef7955-1194-49f3-a2bb-07b1b6414f6d.jpg"
+                                 class="img-full img-block lazy300x300">
+                        </a>
+                        <span class="play-btn action-btn playlist-play" data-id="154821116">
+<img src="%E9%9F%B3%E4%B9%90-%E6%AD%8C%E5%8D%95-%E5%92%AA%E5%92%95%E9%9F%B3%E4%B9%90%E7%BD%91_%E6%94%BE%E8%82%86%E5%90%AC%C2%B7%E8%B6%A3%E7%8E%A9%E4%B9%90_files/btn-play.png"
+     alt="">
+</span>
+                    </div>
+                    <div class="song-list-name">
+                        <a href="http://music.migu.cn/v3/music/playlist/154821116" title="卸下防备，只管享受音乐">卸下防备，只管享受音乐</a>
+                    </div>
+                    <div class="song-list-desc clearfix hide">
+                        <div class="desc-text creatorName">
+                            <i class="iconfont cf-bofangliang"></i>
+                            0
+                        </div>
+                    </div>
+                    <div class="item-action">
+                        <i class="iconfont cf-xihuan-big collect-playlist" data-playlistid="154821116"></i>
+                        <i class="iconfont cf-fenxiang-big J-btn-share" data-sharetype="2"
+                           data-share="{&quot;type&quot;:&quot;songlist&quot;,&quot;title&quot;:&quot;卸下防备，只管享受音乐&quot;,&quot;linkUrl&quot;:&quot;/v3/music/playlist/154821116&quot;,&quot;imgUrl&quot;:&quot;http://d.musicapp.migu.cn/ugcdata/playListimg/65ef7955-1194-49f3-a2bb-07b1b6414f6d.jpg&quot;,&quot;summary&quot;:&quot;&quot;,&quot;singer&quot;:&quot;&quot;,&quot;album&quot;:&quot;&quot;}"></i>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="thumb">
+                    <div class="music-cover">
+                        <a href="http://music.migu.cn/v3/music/playlist/148501072">
+                            <img src="%E9%9F%B3%E4%B9%90-%E6%AD%8C%E5%8D%95-%E5%92%AA%E5%92%95%E9%9F%B3%E4%B9%90%E7%BD%91_%E6%94%BE%E8%82%86%E5%90%AC%C2%B7%E8%B6%A3%E7%8E%A9%E4%B9%90_files/img_default_300x300.jfif"
+                                 data-original="http://d.musicapp.migu.cn/ugcdata/playListimg/9399676d-651e-4d5c-b3ca-da56de9ad60d.jpg"
+                                 class="img-full img-block lazy300x300">
+                        </a>
+                        <span class="play-btn action-btn playlist-play" data-id="148501072">
+<img src="%E9%9F%B3%E4%B9%90-%E6%AD%8C%E5%8D%95-%E5%92%AA%E5%92%95%E9%9F%B3%E4%B9%90%E7%BD%91_%E6%94%BE%E8%82%86%E5%90%AC%C2%B7%E8%B6%A3%E7%8E%A9%E4%B9%90_files/btn-play.png"
+     alt="">
+</span>
+                    </div>
+                    <div class="song-list-name">
+                        <a href="http://music.migu.cn/v3/music/playlist/148501072" title="“拿来主义”鬼才昆汀的电影配乐">“拿来主义”鬼才昆汀的电影配乐</a>
+                    </div>
+                    <div class="song-list-desc clearfix hide">
+                        <div class="desc-text creatorName">
+                            <i class="iconfont cf-bofangliang"></i>
+                            4.6W
+                        </div>
+                    </div>
+                    <div class="item-action">
+                        <i class="iconfont cf-xihuan-big collect-playlist" data-playlistid="148501072"></i>
+                        <i class="iconfont cf-fenxiang-big J-btn-share" data-sharetype="2"
+                           data-share="{&quot;type&quot;:&quot;songlist&quot;,&quot;title&quot;:&quot;“拿来主义”鬼才昆汀的电影配乐&quot;,&quot;linkUrl&quot;:&quot;/v3/music/playlist/148501072&quot;,&quot;imgUrl&quot;:&quot;http://d.musicapp.migu.cn/ugcdata/playListimg/9399676d-651e-4d5c-b3ca-da56de9ad60d.jpg&quot;,&quot;summary&quot;:&quot;&quot;,&quot;singer&quot;:&quot;&quot;,&quot;album&quot;:&quot;&quot;}"></i>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="thumb">
+                    <div class="music-cover">
+                        <a href="http://music.migu.cn/v3/music/playlist/154490324">
+                            <img src="%E9%9F%B3%E4%B9%90-%E6%AD%8C%E5%8D%95-%E5%92%AA%E5%92%95%E9%9F%B3%E4%B9%90%E7%BD%91_%E6%94%BE%E8%82%86%E5%90%AC%C2%B7%E8%B6%A3%E7%8E%A9%E4%B9%90_files/img_default_300x300.jfif"
+                                 data-original="http://d.musicapp.migu.cn/ugcdata/playListimg/6eaa4d84-d2cb-446b-ab2b-e723c31bdeac.jpg"
+                                 class="img-full img-block lazy300x300">
+                        </a>
+                        <span class="play-btn action-btn playlist-play" data-id="154490324">
+<img src="%E9%9F%B3%E4%B9%90-%E6%AD%8C%E5%8D%95-%E5%92%AA%E5%92%95%E9%9F%B3%E4%B9%90%E7%BD%91_%E6%94%BE%E8%82%86%E5%90%AC%C2%B7%E8%B6%A3%E7%8E%A9%E4%B9%90_files/btn-play.png"
+     alt="">
+</span>
+                    </div>
+                    <div class="song-list-name">
+                        <a href="http://music.migu.cn/v3/music/playlist/154490324"
+                           title="心情气象台：阳光总在风雨后">心情气象台：阳光总在风雨后</a>
+                    </div>
+                    <div class="song-list-desc clearfix hide">
+                        <div class="desc-text creatorName">
+                            <i class="iconfont cf-bofangliang"></i>
+                            0
+                        </div>
+                    </div>
+                    <div class="item-action">
+                        <i class="iconfont cf-xihuan-big collect-playlist" data-playlistid="154490324"></i>
+                        <i class="iconfont cf-fenxiang-big J-btn-share" data-sharetype="2"
+                           data-share="{&quot;type&quot;:&quot;songlist&quot;,&quot;title&quot;:&quot;心情气象台：阳光总在风雨后&quot;,&quot;linkUrl&quot;:&quot;/v3/music/playlist/154490324&quot;,&quot;imgUrl&quot;:&quot;http://d.musicapp.migu.cn/ugcdata/playListimg/6eaa4d84-d2cb-446b-ab2b-e723c31bdeac.jpg&quot;,&quot;summary&quot;:&quot;&quot;,&quot;singer&quot;:&quot;&quot;,&quot;album&quot;:&quot;&quot;}"></i>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="thumb">
+                    <div class="music-cover">
+                        <a href="http://music.migu.cn/v3/music/playlist/154426298">
+                            <img src="%E9%9F%B3%E4%B9%90-%E6%AD%8C%E5%8D%95-%E5%92%AA%E5%92%95%E9%9F%B3%E4%B9%90%E7%BD%91_%E6%94%BE%E8%82%86%E5%90%AC%C2%B7%E8%B6%A3%E7%8E%A9%E4%B9%90_files/img_default_300x300.jfif"
+                                 data-original="http://d.musicapp.migu.cn/ugcdata/playListimg/42fb8f29-6137-467b-8f69-c6d39e5009ec.jpg"
+                                 class="img-full img-block lazy300x300">
+                        </a>
+                        <span class="play-btn action-btn playlist-play" data-id="154426298">
+<img src="%E9%9F%B3%E4%B9%90-%E6%AD%8C%E5%8D%95-%E5%92%AA%E5%92%95%E9%9F%B3%E4%B9%90%E7%BD%91_%E6%94%BE%E8%82%86%E5%90%AC%C2%B7%E8%B6%A3%E7%8E%A9%E4%B9%90_files/btn-play.png"
+     alt="">
+</span>
+                    </div>
+                    <div class="song-list-name">
+                        <a href="http://music.migu.cn/v3/music/playlist/154426298" title="淡蓝色的新世纪：烦闷世界里的安谧音符">淡蓝色的新世纪：烦闷世界里的安谧音符</a>
+                    </div>
+                    <div class="song-list-desc clearfix hide">
+                        <div class="desc-text creatorName">
+                            <i class="iconfont cf-bofangliang"></i>
+                            0
+                        </div>
+                    </div>
+                    <div class="item-action">
+                        <i class="iconfont cf-xihuan-big collect-playlist" data-playlistid="154426298"></i>
+                        <i class="iconfont cf-fenxiang-big J-btn-share" data-sharetype="2"
+                           data-share="{&quot;type&quot;:&quot;songlist&quot;,&quot;title&quot;:&quot;淡蓝色的新世纪：烦闷世界里的安谧音符&quot;,&quot;linkUrl&quot;:&quot;/v3/music/playlist/154426298&quot;,&quot;imgUrl&quot;:&quot;http://d.musicapp.migu.cn/ugcdata/playListimg/42fb8f29-6137-467b-8f69-c6d39e5009ec.jpg&quot;,&quot;summary&quot;:&quot;&quot;,&quot;singer&quot;:&quot;&quot;,&quot;album&quot;:&quot;&quot;}"></i>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="thumb">
+                    <div class="music-cover">
+                        <a href="http://music.migu.cn/v3/music/playlist/154896167">
+                            <img src="%E9%9F%B3%E4%B9%90-%E6%AD%8C%E5%8D%95-%E5%92%AA%E5%92%95%E9%9F%B3%E4%B9%90%E7%BD%91_%E6%94%BE%E8%82%86%E5%90%AC%C2%B7%E8%B6%A3%E7%8E%A9%E4%B9%90_files/img_default_300x300.jfif"
+                                 data-original="http://d.musicapp.migu.cn/ugcdata/playListimg/0742ad93-1be1-44d3-a500-608a5993cebb.jpg"
+                                 class="img-full img-block lazy300x300">
+                        </a>
+                        <span class="play-btn action-btn playlist-play" data-id="154896167">
+<img src="%E9%9F%B3%E4%B9%90-%E6%AD%8C%E5%8D%95-%E5%92%AA%E5%92%95%E9%9F%B3%E4%B9%90%E7%BD%91_%E6%94%BE%E8%82%86%E5%90%AC%C2%B7%E8%B6%A3%E7%8E%A9%E4%B9%90_files/btn-play.png"
+     alt="">
+</span>
+                    </div>
+                    <div class="song-list-name">
+                        <a href="http://music.migu.cn/v3/music/playlist/154896167" title="华语怀旧，感谢你们陪伴的那些日子">华语怀旧，感谢你们陪伴的那些日子</a>
+                    </div>
+                    <div class="song-list-desc clearfix hide">
+                        <div class="desc-text creatorName">
+                            <i class="iconfont cf-bofangliang"></i>
+                            0
+                        </div>
+                    </div>
+                    <div class="item-action">
+                        <i class="iconfont cf-xihuan-big collect-playlist" data-playlistid="154896167"></i>
+                        <i class="iconfont cf-fenxiang-big J-btn-share" data-sharetype="2"
+                           data-share="{&quot;type&quot;:&quot;songlist&quot;,&quot;title&quot;:&quot;华语怀旧，感谢你们陪伴的那些日子&quot;,&quot;linkUrl&quot;:&quot;/v3/music/playlist/154896167&quot;,&quot;imgUrl&quot;:&quot;http://d.musicapp.migu.cn/ugcdata/playListimg/0742ad93-1be1-44d3-a500-608a5993cebb.jpg&quot;,&quot;summary&quot;:&quot;&quot;,&quot;singer&quot;:&quot;&quot;,&quot;album&quot;:&quot;&quot;}"></i>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="thumb">
+                    <div class="music-cover">
+                        <a href="http://music.migu.cn/v3/music/playlist/154611621">
+                            <img src="%E9%9F%B3%E4%B9%90-%E6%AD%8C%E5%8D%95-%E5%92%AA%E5%92%95%E9%9F%B3%E4%B9%90%E7%BD%91_%E6%94%BE%E8%82%86%E5%90%AC%C2%B7%E8%B6%A3%E7%8E%A9%E4%B9%90_files/img_default_300x300.jfif"
+                                 data-original="http://d.musicapp.migu.cn/ugcdata/playListimg/decf6562-4a1e-4b98-b0f9-5576d6f74efc.jpg"
+                                 class="img-full img-block lazy300x300">
+                        </a>
+                        <span class="play-btn action-btn playlist-play" data-id="154611621">
+<img src="%E9%9F%B3%E4%B9%90-%E6%AD%8C%E5%8D%95-%E5%92%AA%E5%92%95%E9%9F%B3%E4%B9%90%E7%BD%91_%E6%94%BE%E8%82%86%E5%90%AC%C2%B7%E8%B6%A3%E7%8E%A9%E4%B9%90_files/btn-play.png"
+     alt="">
+</span>
+                    </div>
+                    <div class="song-list-name">
+                        <a href="http://music.migu.cn/v3/music/playlist/154611621" title="Country Pop：闲暇时光领略生活美">Country
+                            Pop：闲暇时光领略生活美</a>
+                    </div>
+                    <div class="song-list-desc clearfix hide">
+                        <div class="desc-text creatorName">
+                            <i class="iconfont cf-bofangliang"></i>
+                            0
+                        </div>
+                    </div>
+                    <div class="item-action">
+                        <i class="iconfont cf-xihuan-big collect-playlist" data-playlistid="154611621"></i>
+                        <i class="iconfont cf-fenxiang-big J-btn-share" data-sharetype="2"
+                           data-share="{&quot;type&quot;:&quot;songlist&quot;,&quot;title&quot;:&quot;Country Pop：闲暇时光领略生活美&quot;,&quot;linkUrl&quot;:&quot;/v3/music/playlist/154611621&quot;,&quot;imgUrl&quot;:&quot;http://d.musicapp.migu.cn/ugcdata/playListimg/decf6562-4a1e-4b98-b0f9-5576d6f74efc.jpg&quot;,&quot;summary&quot;:&quot;&quot;,&quot;singer&quot;:&quot;&quot;,&quot;album&quot;:&quot;&quot;}"></i>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="thumb">
+                    <div class="music-cover">
+                        <a href="http://music.migu.cn/v3/music/playlist/154426535">
+                            <img src="%E9%9F%B3%E4%B9%90-%E6%AD%8C%E5%8D%95-%E5%92%AA%E5%92%95%E9%9F%B3%E4%B9%90%E7%BD%91_%E6%94%BE%E8%82%86%E5%90%AC%C2%B7%E8%B6%A3%E7%8E%A9%E4%B9%90_files/img_default_300x300.jfif"
+                                 data-original="http://d.musicapp.migu.cn/ugcdata/playListimg/f651d3cd-f0dc-4381-aa8b-47bd4a25ab85.jpg"
+                                 class="img-full img-block lazy300x300">
+                        </a>
+                        <span class="play-btn action-btn playlist-play" data-id="154426535">
+<img src="%E9%9F%B3%E4%B9%90-%E6%AD%8C%E5%8D%95-%E5%92%AA%E5%92%95%E9%9F%B3%E4%B9%90%E7%BD%91_%E6%94%BE%E8%82%86%E5%90%AC%C2%B7%E8%B6%A3%E7%8E%A9%E4%B9%90_files/btn-play.png"
+     alt="">
+</span>
+                    </div>
+                    <div class="song-list-name">
+                        <a href="http://music.migu.cn/v3/music/playlist/154426535" title="你有无数个明天，却只有一个今晨">你有无数个明天，却只有一个今晨</a>
+                    </div>
+                    <div class="song-list-desc clearfix hide">
+                        <div class="desc-text creatorName">
+                            <i class="iconfont cf-bofangliang"></i>
+                            0
+                        </div>
+                    </div>
+                    <div class="item-action">
+                        <i class="iconfont cf-xihuan-big collect-playlist" data-playlistid="154426535"></i>
+                        <i class="iconfont cf-fenxiang-big J-btn-share" data-sharetype="2"
+                           data-share="{&quot;type&quot;:&quot;songlist&quot;,&quot;title&quot;:&quot;你有无数个明天，却只有一个今晨&quot;,&quot;linkUrl&quot;:&quot;/v3/music/playlist/154426535&quot;,&quot;imgUrl&quot;:&quot;http://d.musicapp.migu.cn/ugcdata/playListimg/f651d3cd-f0dc-4381-aa8b-47bd4a25ab85.jpg&quot;,&quot;summary&quot;:&quot;&quot;,&quot;singer&quot;:&quot;&quot;,&quot;album&quot;:&quot;&quot;}"></i>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="thumb">
+                    <div class="music-cover">
+                        <a href="http://music.migu.cn/v3/music/playlist/154821945">
+                            <img src="%E9%9F%B3%E4%B9%90-%E6%AD%8C%E5%8D%95-%E5%92%AA%E5%92%95%E9%9F%B3%E4%B9%90%E7%BD%91_%E6%94%BE%E8%82%86%E5%90%AC%C2%B7%E8%B6%A3%E7%8E%A9%E4%B9%90_files/img_default_300x300.jfif"
+                                 data-original="http://d.musicapp.migu.cn/ugcdata/playListimg/e37ca7bf-099e-4ff3-8196-c5cdd7c095b3.jpg"
+                                 class="img-full img-block lazy300x300">
+                        </a>
+                        <span class="play-btn action-btn playlist-play" data-id="154821945">
+<img src="%E9%9F%B3%E4%B9%90-%E6%AD%8C%E5%8D%95-%E5%92%AA%E5%92%95%E9%9F%B3%E4%B9%90%E7%BD%91_%E6%94%BE%E8%82%86%E5%90%AC%C2%B7%E8%B6%A3%E7%8E%A9%E4%B9%90_files/btn-play.png"
+     alt="">
+</span>
+                    </div>
+                    <div class="song-list-name">
+                        <a href="http://music.migu.cn/v3/music/playlist/154821945" title="早安音乐盒，愉悦小调唤醒你沉睡的细胞">早安音乐盒，愉悦小调唤醒你沉睡的细胞</a>
+                    </div>
+                    <div class="song-list-desc clearfix hide">
+                        <div class="desc-text creatorName">
+                            <i class="iconfont cf-bofangliang"></i>
+                            0
+                        </div>
+                    </div>
+                    <div class="item-action">
+                        <i class="iconfont cf-xihuan-big collect-playlist" data-playlistid="154821945"></i>
+                        <i class="iconfont cf-fenxiang-big J-btn-share" data-sharetype="2"
+                           data-share="{&quot;type&quot;:&quot;songlist&quot;,&quot;title&quot;:&quot;早安音乐盒，愉悦小调唤醒你沉睡的细胞&quot;,&quot;linkUrl&quot;:&quot;/v3/music/playlist/154821945&quot;,&quot;imgUrl&quot;:&quot;http://d.musicapp.migu.cn/ugcdata/playListimg/e37ca7bf-099e-4ff3-8196-c5cdd7c095b3.jpg&quot;,&quot;summary&quot;:&quot;&quot;,&quot;singer&quot;:&quot;&quot;,&quot;album&quot;:&quot;&quot;}"></i>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="thumb">
+                    <div class="music-cover">
+                        <a href="http://music.migu.cn/v3/music/playlist/141275638">
+                            <img src="%E9%9F%B3%E4%B9%90-%E6%AD%8C%E5%8D%95-%E5%92%AA%E5%92%95%E9%9F%B3%E4%B9%90%E7%BD%91_%E6%94%BE%E8%82%86%E5%90%AC%C2%B7%E8%B6%A3%E7%8E%A9%E4%B9%90_files/img_default_300x300.jfif"
+                                 data-original="http://d.musicapp.migu.cn/ugcdata/playListimg/c3b53722-8ee7-4799-ad0f-9cb30fec4621.jpg"
+                                 class="img-full img-block lazy300x300">
+                        </a>
+                        <span class="play-btn action-btn playlist-play" data-id="141275638">
+<img src="%E9%9F%B3%E4%B9%90-%E6%AD%8C%E5%8D%95-%E5%92%AA%E5%92%95%E9%9F%B3%E4%B9%90%E7%BD%91_%E6%94%BE%E8%82%86%E5%90%AC%C2%B7%E8%B6%A3%E7%8E%A9%E4%B9%90_files/btn-play.png"
+     alt="">
+</span>
+                    </div>
+                    <div class="song-list-name">
+                        <a href="http://music.migu.cn/v3/music/playlist/141275638" title="青春飞扬，励志起航">青春飞扬，励志起航</a>
+                    </div>
+                    <div class="song-list-desc clearfix hide">
+                        <div class="desc-text creatorName">
+                            <i class="iconfont cf-bofangliang"></i>
+                            9112
+                        </div>
+                    </div>
+                    <div class="item-action">
+                        <i class="iconfont cf-xihuan-big collect-playlist" data-playlistid="141275638"></i>
+                        <i class="iconfont cf-fenxiang-big J-btn-share" data-sharetype="2"
+                           data-share="{&quot;type&quot;:&quot;songlist&quot;,&quot;title&quot;:&quot;青春飞扬，励志起航&quot;,&quot;linkUrl&quot;:&quot;/v3/music/playlist/141275638&quot;,&quot;imgUrl&quot;:&quot;http://d.musicapp.migu.cn/ugcdata/playListimg/c3b53722-8ee7-4799-ad0f-9cb30fec4621.jpg&quot;,&quot;summary&quot;:&quot;&quot;,&quot;singer&quot;:&quot;&quot;,&quot;album&quot;:&quot;&quot;}"></i>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="thumb">
+                    <div class="music-cover">
+                        <a href="http://music.migu.cn/v3/music/playlist/154970849">
+                            <img src="%E9%9F%B3%E4%B9%90-%E6%AD%8C%E5%8D%95-%E5%92%AA%E5%92%95%E9%9F%B3%E4%B9%90%E7%BD%91_%E6%94%BE%E8%82%86%E5%90%AC%C2%B7%E8%B6%A3%E7%8E%A9%E4%B9%90_files/img_default_300x300.jfif"
+                                 data-original="http://d.musicapp.migu.cn/ugcdata/playListimg/1f06eab0-6475-4f8e-82e2-78c76f8e09a3.jpg"
+                                 class="img-full img-block lazy300x300">
+                        </a>
+                        <span class="play-btn action-btn playlist-play" data-id="154970849">
+<img src="%E9%9F%B3%E4%B9%90-%E6%AD%8C%E5%8D%95-%E5%92%AA%E5%92%95%E9%9F%B3%E4%B9%90%E7%BD%91_%E6%94%BE%E8%82%86%E5%90%AC%C2%B7%E8%B6%A3%E7%8E%A9%E4%B9%90_files/btn-play.png"
+     alt="">
+</span>
+                    </div>
+                    <div class="song-list-name">
+                        <a href="http://music.migu.cn/v3/music/playlist/154970849" title="在KTV唱什么粤语歌？">在KTV唱什么粤语歌？</a>
+                    </div>
+                    <div class="song-list-desc clearfix hide">
+                        <div class="desc-text creatorName">
+                            <i class="iconfont cf-bofangliang"></i>
+                            0
+                        </div>
+                    </div>
+                    <div class="item-action">
+                        <i class="iconfont cf-xihuan-big collect-playlist" data-playlistid="154970849"></i>
+                        <i class="iconfont cf-fenxiang-big J-btn-share" data-sharetype="2"
+                           data-share="{&quot;type&quot;:&quot;songlist&quot;,&quot;title&quot;:&quot;在KTV唱什么粤语歌？&quot;,&quot;linkUrl&quot;:&quot;/v3/music/playlist/154970849&quot;,&quot;imgUrl&quot;:&quot;http://d.musicapp.migu.cn/ugcdata/playListimg/1f06eab0-6475-4f8e-82e2-78c76f8e09a3.jpg&quot;,&quot;summary&quot;:&quot;&quot;,&quot;singer&quot;:&quot;&quot;,&quot;album&quot;:&quot;&quot;}"></i>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="page">
+        <span class="iconfont cf-previous-page"></span>
+        <a class="on" href="javascript:;">1</a>
+        <a href="http://music.migu.cn/v3/music/playlist?page=2">2</a>
+        <a href="http://music.migu.cn/v3/music/playlist?page=3">3</a>
+        <span class="more iconfont cf-more"></span>
+        <a href="http://music.migu.cn/v3/music/playlist?page=164">164</a>
+        <a href="http://music.migu.cn/v3/music/playlist?page=2" class="page-c iconfont cf-next-page"></a>
+    </div>
+</div>
+<!-- footer -->
+<div id="footer">
+    <div class="footer-info">
+        <div class="container">
+            <div class="footer-swap footer-item">
+                <div class="migu-family migu-info">
+                    <p class="migu-title">咪咕音乐家族</p>
+                    <ul>
+                        <li><a href="http://ivr.migu.cn/" target="_blank">IVR</a></li>
+                        <li><a href="http://211.137.107.18:8888/page/cm/login.jsp" target="_blank">企业彩铃</a></li>
+                        <!-- <li><a href="http://ising.migu.cn/" target="_blank">咪咕爱唱（TV版）</a></li> -->
+                        <li><a href="https://zgyd.diyring.cc/web/webhome/index" target="_blank">个性彩铃</a></li>
+                    </ul>
+                </div>
+                <div class="migu-contact migu-info">
+                    <p class="migu-title">联系我们</p>
+                    <ul>
+                        <li><a href="http://music.migu.cn/v2/common/cooperation">业务合作</a></li>
+                        <li><a href="http://open.migu.cn/" target="_blank">开放平台</a></li>
+                        <li><a href="javascript:;" class="J-go-kf">常见问题</a></li>
+                        <li><a href="http://music.migu.cn/v2/common/musicianCooperation" target="_blank">咪咕音乐人合作</a>
+                        </li>
+                        <!-- <li><a href="https://i.migu.cn" target="_blank">咪咕音乐人合作</a></li> -->
+                        <li><a href="http://music.migu.cn/v2/common/contactus">联系我们</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-focus footer-item">
+                <p class="migu-title">关注我们</p>
+                <div class="focus-way">
+                    <a href="https://www.weibo.com/10658830" class="focus-sina" target="_blank"></a>
+                    <a href="javascript:;" class="focus-wx">
+                        <img src="%E9%9F%B3%E4%B9%90-%E6%AD%8C%E5%8D%95-%E5%92%AA%E5%92%95%E9%9F%B3%E4%B9%90%E7%BD%91_%E6%94%BE%E8%82%86%E5%90%AC%C2%B7%E8%B6%A3%E7%8E%A9%E4%B9%90_files/migu_gzh.png"
+                             alt="咪咕视频客户端下载二维码" class="img-block img-full">
+                    </a>
+                </div>
+            </div>
+            <div class="footer-qrcode footer-item">
+                <p class="migu-title">咪咕客户端</p>
+                <ul>
+                    <li class="qrcode-a">
+                        <img src="%E9%9F%B3%E4%B9%90-%E6%AD%8C%E5%8D%95-%E5%92%AA%E5%92%95%E9%9F%B3%E4%B9%90%E7%BD%91_%E6%94%BE%E8%82%86%E5%90%AC%C2%B7%E8%B6%A3%E7%8E%A9%E4%B9%90_files/ecode.png"
+                             alt="咪咕音乐客户端下载二维码" class="img-block img-full">
+                        <p>咪咕音乐</p>
+                    </li>
+                    <li>
+                        <img src="%E9%9F%B3%E4%B9%90-%E6%AD%8C%E5%8D%95-%E5%92%AA%E5%92%95%E9%9F%B3%E4%B9%90%E7%BD%91_%E6%94%BE%E8%82%86%E5%90%AC%C2%B7%E8%B6%A3%E7%8E%A9%E4%B9%90_files/miguvideo_ewm.jfif"
+                             alt="咪咕视频客户端下载二维码" class="img-block img-full">
+                        <p>咪咕视频</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="copyright">
+        <div class="container">
+            <div class="c-link">
+                <ul>
+                    <li>
+                        <a href="http://music.migu.cn/v3/api/user/sso?redirectType=PC_MIGU&amp;redirectUrl=http://www.migu.cn/index.html"
+                           target="_blank">咪咕文化</a>
+                        <span class="split-line"></span>
+                    </li>
+                    <li>
+                        <a href="http://music.migu.cn/v2/common/profile" target="_blank">咪咕音乐简介</a>
+                        <span class="split-line"></span>
+                    </li>
+                    <li>
+                        <a href="http://music.migu.cn/v2/common/copyright" target="_blank">版权声明</a>
+                        <span class="split-line"></span>
+                    </li>
+                    <li>
+                        <a href="http://music.migu.cn/v2/common/news" target="_blank">新闻动态</a>
+                        <span class="split-line"></span>
+                    </li>
+                    <li>
+                        <a href="http://music.migu.cn/v2/common/link" target="_blank">友情链接</a>
+                        <span class="split-line"></span>
+                    </li>
+                    <li>
+                        <a href="http://music.migu.cn/v2/common/map" target="_blank">网站地图</a>
+                        <span class="split-line"></span>
+                    </li>
+                    <li>
+                        <a href="https://passport.migu.cn/portal/protocol?sourceid=220001" target="_blank">服务协议</a>
+                        <span class="split-line"></span>
+                    </li>
+                    <li>
+                        <a href="https://passport.migu.cn/portal/privacy/protocol?sourceid=220001"
+                           target="_blank">隐私权政策</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="c-auth">
+                <ul>
+                    <li>蜀ICP备15012512号-1</li>
+                    <li>川网文[2012]0762-026</li>
+                    <li>网络视听许可证0112648号</li>
+                    <li>增值业务许可证A2.B1.B2-20100001</li>
+                </ul>
+            </div>
+            <div class="c-info">Copyright © 2005 - 2019 咪咕音乐有限公司</div>
+        </div>
+    </div>
+</div>
+<div id="offset-action" style="right: 0px; bottom: 55px; opacity: 1;">
+    <a href="javascript:;" id="scroll-top" title="回到顶部" style="display: none;">
+        <i class="iconfont cf-shang"></i>
+    </a>
+    <a title="客服" class="action-botton action-service J-go-kf" href="javascript:;">
+        <b></b>
+    </a>
+    <a href="javascript:;" title="打开播放器" class="action-botton open-player">
+        <b></b>
+    </a>
+</div>
+<a href="javascript:;" id="J_LoginBtn" style="display: none;"></a>
+<script src="%E9%9F%B3%E4%B9%90-%E6%AD%8C%E5%8D%95-%E5%92%AA%E5%92%95%E9%9F%B3%E4%B9%90%E7%BD%91_%E6%94%BE%E8%82%86%E5%90%AC%C2%B7%E8%B6%A3%E7%8E%A9%E4%B9%90_files/jquery.js"></script>
+<script src="%E9%9F%B3%E4%B9%90-%E6%AD%8C%E5%8D%95-%E5%92%AA%E5%92%95%E9%9F%B3%E4%B9%90%E7%BD%91_%E6%94%BE%E8%82%86%E5%90%AC%C2%B7%E8%B6%A3%E7%8E%A9%E4%B9%90_files/manifest.js"></script>
+<script src="%E9%9F%B3%E4%B9%90-%E6%AD%8C%E5%8D%95-%E5%92%AA%E5%92%95%E9%9F%B3%E4%B9%90%E7%BD%91_%E6%94%BE%E8%82%86%E5%90%AC%C2%B7%E8%B6%A3%E7%8E%A9%E4%B9%90_files/vendor.js"></script>
+<script src="%E9%9F%B3%E4%B9%90-%E6%AD%8C%E5%8D%95-%E5%92%AA%E5%92%95%E9%9F%B3%E4%B9%90%E7%BD%91_%E6%94%BE%E8%82%86%E5%90%AC%C2%B7%E8%B6%A3%E7%8E%A9%E4%B9%90_files/common.js"></script>
+<script src="%E9%9F%B3%E4%B9%90-%E6%AD%8C%E5%8D%95-%E5%92%AA%E5%92%95%E9%9F%B3%E4%B9%90%E7%BD%91_%E6%94%BE%E8%82%86%E5%90%AC%C2%B7%E8%B6%A3%E7%8E%A9%E4%B9%90_files/musicPlay.js"></script>
+<script src="%E9%9F%B3%E4%B9%90-%E6%AD%8C%E5%8D%95-%E5%92%AA%E5%92%95%E9%9F%B3%E4%B9%90%E7%BD%91_%E6%94%BE%E8%82%86%E5%90%AC%C2%B7%E8%B6%A3%E7%8E%A9%E4%B9%90_files/playlist.js"></script>
+
+<script type="text/javascript"
+        src="%E9%9F%B3%E4%B9%90-%E6%AD%8C%E5%8D%95-%E5%92%AA%E5%92%95%E9%9F%B3%E4%B9%90%E7%BD%91_%E6%94%BE%E8%82%86%E5%90%AC%C2%B7%E8%B6%A3%E7%8E%A9%E4%B9%90_files/login.htm"></script>
+<div id="J_Mark53645"></div>
+<div id="J_LoginIframeWarp53645" class="other"><p>正在处理，请稍后...</p>
+    <iframe name="loginIframe53645" id="loginIframe53645" allowtransparency="true" scrolling="no" seamless="seamless"
+            style="position:absolute; top:0; left:0; width:100%;height:275px; border-radius: 8px; -moz-border-radius: 8px; -webkit-border-radius: 8px; z-index:2;"
+            frameborder="0"></iframe>
+    <a href="javascript:;" id="J_LoginClose53645">×</a></div>
+</body>
+</html>
