@@ -20,4 +20,7 @@ public interface FeignUserService {
 
     @RequestMapping("/loginUser")
     Map loginUser(@RequestParam Map map);
+
+    @RequestMapping("/showAllType")
+    Map showAllType();
 }
