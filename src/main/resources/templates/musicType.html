@@ -264,14 +264,21 @@
         <div class="container">
 
             <div class="filter vertical" th:each="tMap:${typeMap}">
-                <div class="tag-name">主题</div>
-                <div class="ptag_normal">
-                    <ul class="tag-list">
-                        <li th:text="${tMap['typeName']}"><a href=""></a></li>
-                    </ul>
+                <div th:if="${tMap['typeTow']==0}">
+                    <div class="tag-name" th:text="${tMap['typeName']}" ></div>
+                    <div th:each="tStart:${typeMap}">
+                        <div class="ptag_normal">
+                            <ul class="" th:if="${tMap['typeId']==tStart['typeTow']}" style="width: 120px;margin-left: 100px">
+                                <li style="float: left;margin-left: 14px"><a href="" th:text="${tStart['typeName']}" style="font-size: 16px"></a></li>
+                            </ul>
+                        </div>
+                    </div>
+
 
                 </div>
-            </div>
+
+
+                </div>
 
 
 

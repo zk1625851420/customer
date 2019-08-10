@@ -18,4 +18,5 @@ public class MusicTypeController {
         model.addAttribute("typeMap",feignUserService.showAllType());
         return "/musicType";
     }
+
 }

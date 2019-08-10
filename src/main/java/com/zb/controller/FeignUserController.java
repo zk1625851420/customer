@@ -66,7 +66,7 @@ public class FeignUserController {
     }
     @RequestMapping("/logOffUser")//注销用户
     public String logOffUser(HttpSession session){
-        System.out.println("111");
+        System.out.println("注销用户");
         session.removeAttribute("SESSION_USER");
         session.invalidate();
         return "/homepage";
