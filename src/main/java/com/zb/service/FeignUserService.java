@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Map;
 
-@FeignClient("ServiceProvision")//指向ServiceProvision远端接口
+@FeignClient(value = "ServiceProvision", fallback = SchedualServiceHiHystric.class)//指向ServiceProvision远端接口
 public interface FeignUserService {
 
     @RequestMapping("/userController/addUserByNameAndPwd")

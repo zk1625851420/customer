@@ -18,6 +18,7 @@ import java.util.Map;
 @RequestMapping("/feignUser")
 public class FeignUserController {
 
+
     @Autowired
     FeignUserService feignUserService;//通过FeignUserService调用远端接口ServiceProvision
 
@@ -55,6 +56,7 @@ public class FeignUserController {
         return feignUserService.validatePhoneByUser(phone);
     }
     @RequestMapping("/loginUser")//登录用户
+
     public String loginUser(@RequestParam Map map, HttpSession session){
         if(feignUserService.loginUser(map)!=null){
             session.setAttribute("SESSION_USER",feignUserService.loginUser(map));

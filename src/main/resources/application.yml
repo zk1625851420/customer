@@ -17,6 +17,10 @@ eureka:
     service-url:
       defaultZone: http://localhost:8661/eureka/
 
+
 ribbon:
   eureka:
+    enabled: true
+feign:
+  hystrix:
     enabled: true
